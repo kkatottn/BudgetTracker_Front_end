@@ -6,7 +6,8 @@ import jwt_decode from "jwt-decode";
 
 function App() {
   const [user, setUser] = useState(null);
-  const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
+  const GOOGLE_CLIENT_ID =
+    "882192000932-s84n6fudpcnc0isfa2pojk2fnob39j12.apps.googleusercontent.com";
 
   function handleCallbackResponse(response) {
     console.log("ID Token: " + response.credential);
