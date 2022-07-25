@@ -6,7 +6,10 @@ const Landing = () => {
     <div id="landing">
       <header>Kash Note</header>
       <main>
-        <div id="signIn"></div>
+        <div className="login-container">
+          <div id="signIn"></div>
+        </div>
+        <div className="extra-container"></div>
       </main>
       <footer>This is footer</footer>
     </div>

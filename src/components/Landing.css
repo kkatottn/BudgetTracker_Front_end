@@ -12,9 +12,33 @@ header{
     padding-left: 20px;
 }
 main {
-    height: 90vh;
+    height: 80vh;
     background-color: #efffff;
+    display: grid;
+    grid-template-columns: 35% 55%;
+    grid-template-rows: 80%;
+    justify-content: space-evenly;
+    align-content: center;
+    column-gap: 50px;
 
+
+}
+.login-container{
+    border: green solid 3px;
+}
+
+#signIn{
+    width : 50%;
+    height: 50%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+
+}
+
+.extra-container{
+    border: green solid 3px;
 }
 
 footer {
