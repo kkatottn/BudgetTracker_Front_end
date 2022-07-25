@@ -12,6 +12,7 @@ function App() {
     console.log("ID Token: " + response.credential);
     const userObject = jwt_decode(response.credential);
     console.log(userObject);
+    console.log("this is id", GOOGLE_CLIENT_ID);
   }
 
   useEffect(() => {
