@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
     /*global google*/
     google.accounts.id.initialize({
-      client_id: JSON.stringify(GOOGLE_CLIENT_ID),
+      client_id: JSON.parse(GOOGLE_CLIENT_ID),
       callback: handleCallbackResponse,
     });
 
