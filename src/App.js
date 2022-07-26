@@ -3,7 +3,7 @@ import Landing from "./components/Landing";
 import Main from "./components/Main";
 import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
-import env from "react-dotenv";
+import env from 'react-dotenv';
 
 function App() {
   const [user, setUser] = useState(null);
