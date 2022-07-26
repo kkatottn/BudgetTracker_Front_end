@@ -3,13 +3,13 @@ import Landing from "./components/Landing";
 import Main from "./components/Main";
 import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
-import env from "react-dotenv";
+//import env from "react-dotenv";
 
 function App() {
   const [user, setUser] = useState(null);
   // const GOOGLE_CLIENT_ID =
   //   "882192000932-s84n6fudpcnc0isfa2pojk2fnob39j12.apps.googleusercontent.com";
-  const GOOGLE_CLIENT_ID = env.REACT_APP_GOOGLE_CLIENT_ID;
+  const GOOGLE_CLIENT_ID = window.env.REACT_APP_GOOGLE_CLIENT_ID;
 
   function handleCallbackResponse(response) {
     console.log("ID Token: " + response.credential);
