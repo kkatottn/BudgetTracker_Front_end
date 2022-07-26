@@ -43,6 +43,9 @@
     ]
   },
   "react-dotenv": {
-    "whitelist": ["REACT_APP_GOOGLE_CLIENT_ID", "REACT_APP_GOOGLE_SECRET"]
+    "whitelist": [
+      "REACT_APP_GOOGLE_CLIENT_ID",
+      "REACT_APP_GOOGLE_SECRET"
+    ]
   }
 }
