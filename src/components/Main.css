@@ -15,15 +15,20 @@
     height: calc(100vh - 160px);
     background-color: #efffff;
     display: grid;
-    grid-template-columns: 35% 55%;
-    grid-template-rows: 80%;
-    justify-content: space-evenly;
+    grid-template-columns: 58% 38%;
+    grid-template-rows: 90%;
+    justify-content: space-around;
     align-content: center;
-    column-gap: 50px;
-
+    /* column-gap: 10px; */
 
 }
+#main #profile {
+    border: green solid 3px;
+}
 
+#main #extra-feature {
+    border: green solid 3px;
+}
 #main footer {
     background-color: #90c1c5;
     position: absolute;

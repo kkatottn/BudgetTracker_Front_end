@@ -1,5 +1,6 @@
 import React from "react";
 import "./Landing.css";
+import News from './News.js'
 
 const Landing = () => {
   return (
@@ -9,7 +10,9 @@ const Landing = () => {
         <div className="login-container">
           <div id="signIn"></div>
         </div>
-        <div className="extra-container"></div>
+        <div className="news-container">
+          <News/>
+        </div>
       </main>
       <footer>This is footer</footer>
     </div>
