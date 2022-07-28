@@ -28,8 +28,10 @@ function App() {
     });
 
     google.accounts.id.renderButton(document.getElementById("signIn"), {
-      theme: "outline",
+      theme: "outline", // filled_blue, filled_black
       size: "large",
+      width: "350px", // maximum width : 400px
+      shape: "circle", // rectangular
     });
   }, []);
 
