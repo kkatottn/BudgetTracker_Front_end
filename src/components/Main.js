@@ -1,16 +1,24 @@
 import React from "react";
 import "./Main.css";
 import Profile from "./Profile.js"
+import BudgetContainer from "./BudgetContainer.js"
+import ChartContainer from "./ChartContainer.js"
 
 const Main = (props) => {
   return <div id="main">
     <header>Kash Note</header>
     <main>
       {/* This is main page */}
-      <div id="profile">
+      <div id="profile-container">
         <Profile user={props.user}/>
         </div>
       <div id="extra-feature">
+        <div id="budget-container">
+          <BudgetContainer user={props.user}/>
+          </div>
+        <div id="chart-container">
+          <ChartContainer/>
+          </div>
       </div>
     </main>
     <footer>This is footer</footer>
