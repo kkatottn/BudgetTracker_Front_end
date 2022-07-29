@@ -4,8 +4,9 @@ import "./Greeting.css"
 const Greeting = (props) => {
   return(
     <div>
-      <span id="welcome">Welcome, </span>
-      <span id="user-name">{props.user.name} !</span>  
+      {/* <span id="welcome">Welcome, </span>
+      <span id="user-name">{props.user.name} !</span>   */}
+      <p>Welcome, {props.user.name}!</p>
     </div>)
 }
 
