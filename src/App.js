@@ -13,6 +13,7 @@ function App() {
   const [userCategories, setUserCategories] = useState([]);
   const [budget, setBudget] = useState(null);
   const [expenses, setExpenses] = useState([]);
+  const [expenseData, setExpenseData] = useState({});
 
   const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
@@ -77,6 +78,9 @@ function App() {
     // .catch -> return .... 
   }
 
+  const addExpense = (user_id, category_id, amount, description, month, year) => {
+    
+  }
 
 
 
