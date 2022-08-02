@@ -3,6 +3,7 @@ import Landing from "./components/Landing";
 import Main from "./components/Main";
 import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
+import axios from 'axios';
 // import { DateTime } from 'luxon';
 //import env from "react-dotenv";
 
@@ -27,6 +28,8 @@ function App() {
     //console.log("this is id", GOOGLE_CLIENT_ID);
   }
 
+  const URL = "https://kashnote.herokuapp.com"
+
   useEffect(() => {
     /*global google*/
     google.accounts.id.initialize({
@@ -45,19 +48,36 @@ function App() {
   const getDate = () => {
     // grab date from date time
     // setDate 
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth();
+    setDate({'month': month, 'year': year})
   }
 
 
   const handleUser = (user_email) => {
     //axios call to get_user
-    //.then -> setUser
-    //.catch => axios call to POST new_user()
+    axios.get(`${URL}/user/${user.email}`)
+    .then((res)=>{
+      setUser(res)
+    })
+    .catch(()=>{
+      axios.post(`${URL}/user`, {'id_token': user.id_token, 'email': user.email, 'name': user.name})
+      .then((res) => {
+        const newUser = {"user_id": res.id, "id_token": user.id_token, "email": user.email, "name": user.name}
+        setUser(newUser)
+    })
+      .catch((err) => {
+        console.log("Error posting a new user")
+      })
+    })
   }
 
   const getDefaultCategories = () => {
     // axios call to get_all_default_categories
     // .then -> setDefaultCategories 
     // .catch -> return error msg
+    axios.get(`${URL}/category`)
   }
 
   const getUserCategories = (user_id) => {
@@ -66,7 +86,7 @@ function App() {
     // .catch -> return err msg
   }
 
-  const getBudget = (user_id) => {
+  const getBudget = (user_id, month, year) => {
     // axios call to get budget
     // .then -> setBudget
     // .catch -> return err msg 
@@ -78,8 +98,28 @@ function App() {
     // .catch -> return .... 
   }
 
-  const addExpense = (user_id, category_id, amount, description, month, year) => {
-    
+  const addExpense = (data) => {
+    // axios post with data in request body
+    // .then -> newExpenses = getExpenses
+    // newExpense = {'description': data.descript}
+    // setExpenses({expenses..., newExpense})
+    //          setExpenses(newExpenses)
+
+  }
+  
+  const editExpense = (expense_id) => {
+    // axios patch with expense id
+    // .then -> setExpense ({expense})......
+  }
+
+  const addBudget = (budgetData) => {
+    // axios post with budget data in request body
+    // .then -> setBudget
+  }
+
+  const editBudget = (budgetData) => {
+    // axios patch with budget data in req body
+    // .then -> setBudget
   }
 
 
