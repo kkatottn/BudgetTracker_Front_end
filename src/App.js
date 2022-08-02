@@ -85,7 +85,6 @@ function App() {
     })
   }
 
-
   const getUserCategories = (user_id) => {
     // axios call to get user categories
     // .then -> setUserCategories
@@ -98,7 +97,6 @@ function App() {
       console.log("something wrong with get user categories!");
     })
   }
-
 
   const getBudget = (user_id) => {
     // axios call to get budget
@@ -127,7 +125,6 @@ function App() {
     .catch(() => {
       console.log("Something went wrong retrieving user expenses")
     })
-    }
   }
 
   const addExpense = (request_body) => {
@@ -151,7 +148,7 @@ function App() {
     .catch(() => {
       console.log("something wrong with add new expense!");
     })
-  }
+  };
 
   
   const editExpense = (expense_id, request_body) => {
