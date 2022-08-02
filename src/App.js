@@ -9,7 +9,7 @@ import { DateTime } from 'luxon';
 
 function App() {
   const [user, setUser] = useState(null);
-  const [date, setDate] = useState({'month': null, 'year': null});
+  const [date, setDate] = useState({'month': null, 'year': 2022});
   const [defaultCategories, setDefaultCategories] = useState([]);
   const [userCategories, setUserCategories] = useState([]);
   const [budget, setBudget] = useState(null);
@@ -48,9 +48,9 @@ function App() {
     // grab date from date time
     // setDate 
     const today = new Date();
-    const year = today.getFullYear();
+    //const year = today.getFullYear();
     const month = today.getMonth();
-    setDate({'month': month, 'year': year})
+    setDate({...date, "month":month})
   }
 
 
