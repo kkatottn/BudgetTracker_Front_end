@@ -3,15 +3,24 @@ import Landing from "./components/Landing";
 import Main from "./components/Main";
 import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
+// import { DateTime } from 'luxon';
 //import env from "react-dotenv";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [date, setDate] = useState({'month': null, 'year': null});
+  const [defaultCategories, setDefaultCategories] = useState([]);
+  const [userCategories, setUserCategories] = useState([]);
+  const [budget, setBudget] = useState(null);
+  const [expenses, setExpenses] = useState([]);
+
   const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
-  function handleCallbackResponse(response) {
+  // function handleCallbackResponse(response)
+  const handleCallbackResponse = (response) => {
     //console.log("ID Token: " + response.credential);
     const userObject = jwt_decode(response.credential);
+    //handleUser(userObject.email)
     setUser(userObject);
     //we can access to full name with .name, email with .email, given_name, family_name
     //console.log("this is id", GOOGLE_CLIENT_ID);
@@ -32,6 +41,50 @@ function App() {
     });
   }, []);
 
+  const getDate = () => {
+    // grab date from date time
+    // setDate 
+  }
+
+
+  const handleUser = (user_email) => {
+    //axios call to get_user
+    //.then -> setUser
+    //.catch => axios call to POST new_user()
+  }
+
+  const getDefaultCategories = () => {
+    // axios call to get_all_default_categories
+    // .then -> setDefaultCategories 
+    // .catch -> return error msg
+  }
+
+  const getUserCategories = (user_id) => {
+    // axios call to get user categories
+    // .then -> setUserCategories
+    // .catch -> return err msg
+  }
+
+  const getBudget = (user_id) => {
+    // axios call to get budget
+    // .then -> setBudget
+    // .catch -> return err msg 
+  }
+
+  const getExpenses = (user_id) => {
+    // axios call to get expenses
+    // .then -> setExpenses
+    // .catch -> return .... 
+  }
+
+
+
+
+
+
+
+
+  //Handling render different page depend on user status
   if (user === null) {
     return (
       <div>
