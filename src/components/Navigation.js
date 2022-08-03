@@ -12,7 +12,7 @@ const Navigation = (props) => {
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="me-auto flex-grow-1 justify-content-evenly">
             <Nav.Link className="month" onClick={() => {props.changeMonth(1);}}>Jan</Nav.Link>
             <Nav.Link className="month" onClick={() => {props.changeMonth(2);}}>Feb</Nav.Link>
             <Nav.Link className="month" onClick={() => {props.changeMonth(3);}}>Mar</Nav.Link>
