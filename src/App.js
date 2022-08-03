@@ -239,8 +239,10 @@ function App() {
       <div>
         <Main 
         user={user}
+        date={date}
         changeMonth={changeMonth}
-        defaultCategories={defaultCategories}/>
+        defaultCategories={defaultCategories}
+        addExpense={addExpense}/>
       </div>
     );
   }

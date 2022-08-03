@@ -1,6 +1,5 @@
 import React from "react";
 import "./ExpenseSpreadSheet.css"
-// import { useState } from 'react'
 import { Grid, Input} from 'react-spreadsheet-grid'
 
 const ExpenseSpreadSheet = () => {
@@ -17,6 +16,7 @@ const ExpenseSpreadSheet = () => {
     {category_id: 'category9', description: '', amount: '' },
     {category_id: 'category10', description: '', amount: '' },
 ];
+
   return(
     <div id="gridsheet">
       {/* Bootstrap spreadsheet/table making */}
@@ -29,7 +29,6 @@ const ExpenseSpreadSheet = () => {
                   <Input
                     value={emptyExpense.description}
                     focus={focus}
-                    // onChange={}
                   />
               );
           }
@@ -40,6 +39,7 @@ const ExpenseSpreadSheet = () => {
                 <Input
                 value={emptyExpense.amount}
                 focus={focus}
+                // onclick={togglePopup}
               />
               );
           }
@@ -48,6 +48,7 @@ const ExpenseSpreadSheet = () => {
       rows={emptyExpenses}
       getRowKey={emptyExpense => emptyExpense.category_id}
     />
+
     </div>);
 }
 
