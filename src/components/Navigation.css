@@ -1,7 +1,6 @@
 .navbar {
     background-color: #3d8180;   
-    /* align-content: space-around;
-    height: 100%; */
+    height: auto !important;
 }
 
 .month {

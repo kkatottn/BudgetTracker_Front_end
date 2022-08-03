@@ -22,16 +22,9 @@
     /* column-gap: 10px; */
 
 }
-#main #profile-container {
+/* #main #profile-container {
     border: green solid 3px;
-    /* display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 10% 80%;
-    justify-content: space-around;
-    align-content: center;
-    row-gap: 3px; */
-
-}
+} */
 
 
 #main #extra-feature {

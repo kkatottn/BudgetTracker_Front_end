@@ -1,17 +1,17 @@
 #entry-container {
     height: 100%;
-    /* border: red solid 3px; */
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 8% 82% 10%;
+    grid-template-rows: auto 84% 10%;
     /* justify-content: space-around; */
     align-content: center;
     /* row-gap: 5px; */
 }
 
-/* #navigation {
-    border: black solid 2px;
-} */
+#navigation {
+    /* border: red solid 2px; */
+    height: fit-content;
+}
 
 #expense-container {
     border: blue solid 2px;
