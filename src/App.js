@@ -219,7 +219,8 @@ function App() {
       <div>
         <Main 
         user={user}
-        changeMonth={changeMonth}/>
+        changeMonth={changeMonth}
+        defaultCategories={defaultCategories}/>
       </div>
     );
   }

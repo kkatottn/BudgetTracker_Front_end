@@ -11,7 +11,8 @@ const Entry = (props) => {
       <Navigation changeMonth={props.changeMonth}/>
     </div>
     <div id="expense-container">
-      <ExpenseContainer/>
+      <ExpenseContainer
+      defaultCategories={props.defaultCategories}/>
     </div>
     <div id="category-form">
       <NewCategoryForm/>

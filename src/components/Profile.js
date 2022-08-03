@@ -10,7 +10,9 @@ const Profile = (props) => {
         <Greeting user={props.user}/>
       </div>
       <div id="entry">
-          <Entry changeMonth={props.changeMonth}/>
+          <Entry 
+          changeMonth={props.changeMonth}
+          defaultCategories={props.defaultCategories}/>
       </div>
     </div>
     );

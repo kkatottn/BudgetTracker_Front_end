@@ -6,7 +6,7 @@ const Expense = (props) => {
   return(
     <div id="expense">
       <div id="title">
-        <p>{props.category}</p>
+        <p>{props.defcategory}</p>
       </div>
       <div id="spread-sheet">
         <ExpenseSpreadSheet/>

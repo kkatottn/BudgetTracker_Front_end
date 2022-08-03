@@ -12,7 +12,8 @@ const Main = (props) => {
       <div id="profile-container">
         <Profile 
         user={props.user}
-        changeMonth={props.changeMonth}/>
+        changeMonth={props.changeMonth}
+        defaultCategories={props.defaultCategories}/>
         </div>
       <div id="extra-feature">
         <div id="budget-container">

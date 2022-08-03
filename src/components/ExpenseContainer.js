@@ -2,10 +2,12 @@ import React from "react";
 import "./ExpenseContainer.css"
 import Expense from "./Expense.js";
 
-const ExpenseContainer = () => {
-  const testData = ["Amazon", "Grocery", "Restaurant"];
+const ExpenseContainer = (props) => {
+  const testData = ["Grocery", "Restaurant", "Discretionary"];
+  //add utility to test carosel
   const expenseComponents = testData.map((data) => {
-    return <Expense category={data}/>;
+    //change to props.defaultCategories.map((defCat))
+    return <Expense defcategory={data}/>;
   }) 
   return(<div id="all-expenses">
     {/* Passing expenseData and categories from app level and passing to Expense component ,
