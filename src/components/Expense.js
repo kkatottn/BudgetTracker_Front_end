@@ -4,9 +4,11 @@ import ExpenseSpreadSheet from "./ExpenseSpreadSheet.js";
 
 const Expense = (props) => {
   return(
-    <div>
-      <div>Category Title</div>
-      <div>
+    <div id="expense">
+      <div id="title">
+        <p>{props.category}</p>
+      </div>
+      <div id="spread-sheet">
         <ExpenseSpreadSheet/>
       </div>
     </div>)

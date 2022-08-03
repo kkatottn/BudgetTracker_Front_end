@@ -1,0 +1,25 @@
+#expense {
+    border: #3d8180 solid 2px;
+    width: 30%;
+    height: 95%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 7% 93%;
+    align-content: center;
+
+}
+
+#title {
+    border-bottom: #3d8180 solid 2px;
+    text-align: center;
+    font-size: large;
+    display: table;
+}
+
+#title p {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+

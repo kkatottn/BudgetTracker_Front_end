@@ -1,0 +1,10 @@
+#all-expenses{
+    height: 100%;
+    width: 100%;
+    display:flex;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content:space-around;
+    
+}
