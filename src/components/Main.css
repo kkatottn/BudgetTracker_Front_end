@@ -9,14 +9,15 @@
     height : 80px;
     background-color: #90c1c5;
     font-size: 50px;
-    padding-left: 20px;
+    padding-left: 17px;
 }
 #main main {
     height: calc(100vh - 160px);
     background-color: #efffff;
     display: grid;
     grid-template-columns: 58% 38%;
-    grid-template-rows: 95%;
+    grid-template-rows: 98%;
+    padding-bottom: 7px;
     justify-content: space-around;
     align-content: center;
     /* column-gap: 10px; */

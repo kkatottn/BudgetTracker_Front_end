@@ -6,7 +6,7 @@
     grid-template-rows: 10% 90%;
     /* justify-content: space-around; */
     align-content: center;
-    /* row-gap: 5px; */
+    /* row-gap: 2px; */
 }
 
 #greeting {
