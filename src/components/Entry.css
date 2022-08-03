@@ -11,12 +11,16 @@
 #navigation {
     /* border: red solid 2px; */
     height: fit-content;
+    border-top: #3d8180 solid 3px;
 }
 
 #expense-container {
-    border: blue solid 2px;
+    border: #3d8180 solid 3px;
+    
 }
 
 #category-form {
-    border: black solid 2px;
+    border-bottom: #3d8180 solid 3px;
+    border-left: #3d8180 solid 3px;
+    border-right:#3d8180 solid 3px;
 }
