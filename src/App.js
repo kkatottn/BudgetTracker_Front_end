@@ -47,7 +47,7 @@ function App() {
     });
 
     getDate();
-    // getDefaultCategories();
+    getDefaultCategories();
     // getUserCategories(user.user_id);
     // getBudget(user.user_id);
     // getExpenses(user.user_id);
@@ -91,7 +91,14 @@ function App() {
     // .catch -> return error msg
     axios.get(`${URL}/category`)
     .then((res) => {
+      // let allDefaultCate = []
+      // const dataList = res.data["default categories"];
+      // for (const data of dataList) {
+      //   allDefaultCate.push(data);
+      // }
+      // setDefaultCategories(allDefaultCate);      
       setDefaultCategories(res.data["default categories"]);
+      
     })
     .catch(() => {
       console.log("something wrong with get default categories!");
