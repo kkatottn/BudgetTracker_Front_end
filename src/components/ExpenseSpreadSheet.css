@@ -3,7 +3,9 @@
     height: 100%;
 }
 
+
 .SpreadsheetGrid__headCell {
     background-color: #3d8180;
-    text-align: center;
+    /* want to avoid to use !important */
+    /* background-color: #3d8180 !important; */
 }

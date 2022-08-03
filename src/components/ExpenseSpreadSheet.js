@@ -5,17 +5,17 @@ import { Grid, Input} from 'react-spreadsheet-grid'
 
 const ExpenseSpreadSheet = () => {
 
-  const expenses = [
-    {category_id: 'category1', description: 'Pho', amount: 31 },
-    {category_id: 'category2', description: 'Thai food', amount: 40},
-    {category_id: 'category2', description: 'Thai food', amount: 40},
-    {category_id: 'category2', description: 'Thai food', amount: 40},
-    {category_id: 'category2', description: 'Thai food', amount: 40},
-    {category_id: 'category2', description: 'Thai food', amount: 40},
-    {category_id: 'category2', description: 'Thai food', amount: 40},
-    {category_id: 'category2', description: 'Thai food', amount: 40},
-    {category_id: 'category2', description: 'Thai food', amount: 40}
-    // and so on...
+  const emptyExpenses = [
+    {category_id: 'category1', description: '', amount: '' },
+    {category_id: 'category2', description: '', amount: '' },
+    {category_id: 'category3', description: '', amount: '' },
+    {category_id: 'category4', description: '', amount: '' },
+    {category_id: 'category5', description: '', amount: '' },
+    {category_id: 'category6', description: '', amount: '' },
+    {category_id: 'category7', description: '', amount: '' },
+    {category_id: 'category8', description: '', amount: '' },
+    {category_id: 'category9', description: '', amount: '' },
+    {category_id: 'category10', description: '', amount: '' },
 ];
   return(
     <div id="gridsheet">
@@ -24,10 +24,10 @@ const ExpenseSpreadSheet = () => {
       columns={[
         {
           title: () => 'Description',
-          value: (expense, { focus }) => {
+          value: (emptyExpense, { focus }) => {
               return (
                   <Input
-                    value={expense.description}
+                    value={emptyExpense.description}
                     focus={focus}
                     // onChange={}
                   />
@@ -35,18 +35,18 @@ const ExpenseSpreadSheet = () => {
           }
         }, {
           title: () => 'Amount',
-          value: (expense, { focus }) => {
+          value: (emptyExpense, { focus }) => {
               return (
                 <Input
-                value={expense.amount}
+                value={emptyExpense.amount}
                 focus={focus}
               />
               );
           }
         }
       ]}
-      rows={expenses}
-      getRowKey={expense => expense.category_id}
+      rows={emptyExpenses}
+      getRowKey={emptyExpense => emptyExpense.category_id}
     />
     </div>);
 }

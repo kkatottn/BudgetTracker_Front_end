@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
 import { DateTime } from 'luxon';
+import { getDatasetAtEvent } from "react-chartjs-2";
 //import env from "react-dotenv";
 
 function App() {
@@ -21,13 +22,15 @@ function App() {
   const handleCallbackResponse = (response) => {
     //console.log("ID Token: " + response.credential);
     const userObject = jwt_decode(response.credential);
-    //handleUser(userObject.email)
-    setUser(userObject);
+    // setUser(userObject);
+    //console.log(userObject.email);
+    handleUser(userObject);
+
     //we can access to full name with .name, email with .email, given_name, family_name
     //console.log("this is id", GOOGLE_CLIENT_ID);
   }
 
-  const URL = "https://kashnote.herokuapp.com"
+  const URL = "https://kashnote-server.herokuapp.com"
 
   useEffect(() => {
     /*global google*/
@@ -42,6 +45,13 @@ function App() {
       width: "350px", // maximum width : 400px
       shape: "circle", // rectangular
     });
+
+    getDate();
+    // getDefaultCategories();
+    // getUserCategories(user.user_id);
+    // getBudget(user.user_id);
+    // getExpenses(user.user_id);
+    
   }, []);
 
   const getDate = () => {
@@ -54,16 +64,19 @@ function App() {
   }
 
 
-  const handleUser = (user_email) => {
+  const handleUser = (userObject) => {
     //axios call to get_user
-    axios.get(`${URL}/user/${user.email}`)
+    axios.get(`${URL}/user/${userObject.email}`)
     .then((res)=>{
-      setUser(res)
+      console.log("exist user!")
+      setUser(res.data)
     })
-    .catch(()=>{
-      axios.post(`${URL}/user`, {params:{'id_token': user.id_token, 'email': user.email, 'name': user.name}})
+    .catch((err)=>{
+      console.log(err.response);
+      axios.post(`${URL}/user`, userObject)
       .then((res) => {
-        const newUser = {"user_id": res.id, "id_token": user.id_token, "email": user.email, "name": user.name}
+        console.log("we are creating new user!")
+        const newUser = {"user_id": res.data.id,"email": userObject.email, "name": userObject.name}
         setUser(newUser)
     })
       .catch((err) => {
@@ -78,7 +91,7 @@ function App() {
     // .catch -> return error msg
     axios.get(`${URL}/category`)
     .then((res) => {
-      setDefaultCategories(res["default categories"]);
+      setDefaultCategories(res.data["default categories"]);
     })
     .catch(() => {
       console.log("something wrong with get default categories!");
