@@ -5,10 +5,17 @@ import ExpenseContainer from "./ExpenseContainer.js";
 import NewCategoryForm from "./NewCategoryForm.js"
 
 const Entry = (props) => {
-  return(<div>
-    <Navigation changeMonth={props.changeMonth}/>
-    <ExpenseContainer/>
-    <NewCategoryForm/>
+  return(
+  <div id="entry-container">
+    <div id="navigation">
+      <Navigation changeMonth={props.changeMonth}/>
+    </div>
+    <div id="expense-container">
+      <ExpenseContainer/>
+    </div>
+    <div id="category-form">
+      <NewCategoryForm/>
+    </div>
   </div>);
 }
 

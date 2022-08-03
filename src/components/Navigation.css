@@ -1,5 +1,7 @@
 .navbar {
     background-color: #3d8180;   
+    /* align-content: space-around;
+    height: 100%; */
 }
 
 .month {
@@ -8,5 +10,6 @@
     font-size: large;
     padding-top: 0;
     padding-bottom: 0;
-    margin-right: 44px;
+    align-items: center;
 }
+
