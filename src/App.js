@@ -79,7 +79,7 @@ function App() {
         const newUser = {"user_id": res.data.id,"email": userObject.email, "name": userObject.name}
         setUser(newUser)
     })
-      .catch((err) => {
+      .catch(() => {
         console.log("Error posting a new user")
       })
     })
@@ -111,7 +111,7 @@ function App() {
     // .catch -> return err msg
     axios.get(`${URL}/${user_id}/category`, {params:{"month" : date.month, "year" : date.year}})
     .then((res) => {
-      setUserCategories(res["user categories"]);
+      setUserCategories(res.data["user categories"]);
     })
     .catch(() => {
       console.log("something wrong with get user categories!");
@@ -125,7 +125,7 @@ function App() {
     axios.get(`${URL}/${user_id}/budget`,{params: {"month" : date.month, "year" : date.year}})
     .then((res) => {
       if ("amount" in res){
-        setBudget(res["amount"])  
+        setBudget(res.data["amount"])  
       }
     })
     .catch(() => {
@@ -140,7 +140,7 @@ function App() {
     // .catch -> return .... 
     axios.get(`${URL}/${user_id}/expense`, {params: {"id": user.user_id, "month": date.month, "year": date.year}})
     .then((res) => {
-      setExpenses(res["user expenses"])
+      setExpenses(res.data["user expenses"])
     })
     .catch(() => {
       console.log("Something went wrong retrieving user expenses")
@@ -158,7 +158,7 @@ function App() {
     .then((res) => {
       const newExpense = {
         "amount" : request_body.amount,
-        "description" : res.description,
+        "description" : res.data.description,
         "month" : request_body.month,
         "year" : request_body.year,
         "category_id" : request_body.category_id
@@ -196,7 +196,7 @@ function App() {
     // .then -> setBudget
     axios.post(`${URL}/${user.user_id}/budget`, request_body)
     .then((res) => {
-      const newBudget = {"amount": res["amount"], "month": request_body.month, "year": request_body.year}
+      const newBudget = {"amount": res.data["amount"], "month": request_body.month, "year": request_body.year}
       setBudget(newBudget)
     })
     .catch(() => {
