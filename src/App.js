@@ -198,10 +198,10 @@ function App() {
     })
   };
 
-
-
-
-
+  const changeMonth = (newMonth) => {
+    setDate({...date, "month": newMonth});
+    console.log("month changed!")
+  };
 
 
   //Handling render different page depend on user status
@@ -217,7 +217,9 @@ function App() {
 
     return (
       <div>
-        <Main user={user}/>
+        <Main 
+        user={user}
+        changeMonth={changeMonth}/>
       </div>
     );
   }

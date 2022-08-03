@@ -10,7 +10,9 @@ const Main = (props) => {
     <main>
       {/* This is main page */}
       <div id="profile-container">
-        <Profile user={props.user}/>
+        <Profile 
+        user={props.user}
+        changeMonth={props.changeMonth}/>
         </div>
       <div id="extra-feature">
         <div id="budget-container">

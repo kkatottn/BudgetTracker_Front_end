@@ -10,7 +10,7 @@ const Profile = (props) => {
         <Greeting user={props.user}/>
       </div>
       <div id="entry">
-          <Entry/>
+          <Entry changeMonth={props.changeMonth}/>
       </div>
     </div>
     );

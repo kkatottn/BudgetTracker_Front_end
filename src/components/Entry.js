@@ -4,9 +4,9 @@ import Navigation from "./Navigation.js";
 import ExpenseContainer from "./ExpenseContainer.js";
 import NewCategoryForm from "./NewCategoryForm.js"
 
-const Entry = () => {
+const Entry = (props) => {
   return(<div>
-    <Navigation/>
+    <Navigation changeMonth={props.changeMonth}/>
     <ExpenseContainer/>
     <NewCategoryForm/>
   </div>);
