@@ -6,15 +6,15 @@ const ExpenseSpreadSheet = () => {
 
   const emptyExpenses = [
     {category_id: 'category1', description: '', amount: '' },
-    {category_id: 'category2', description: '', amount: '' },
-    {category_id: 'category3', description: '', amount: '' },
-    {category_id: 'category4', description: '', amount: '' },
-    {category_id: 'category5', description: '', amount: '' },
-    {category_id: 'category6', description: '', amount: '' },
-    {category_id: 'category7', description: '', amount: '' },
-    {category_id: 'category8', description: '', amount: '' },
-    {category_id: 'category9', description: '', amount: '' },
-    {category_id: 'category10', description: '', amount: '' },
+    // {category_id: 'category2', description: '', amount: '' },
+    // {category_id: 'category3', description: '', amount: '' },
+    // {category_id: 'category4', description: '', amount: '' },
+    // {category_id: 'category5', description: '', amount: '' },
+    // {category_id: 'category6', description: '', amount: '' },
+    // {category_id: 'category7', description: '', amount: '' },
+    // {category_id: 'category8', description: '', amount: '' },
+    // {category_id: 'category9', description: '', amount: '' },
+    // {category_id: 'category10', description: '', amount: '' },
 ];
 
   return(

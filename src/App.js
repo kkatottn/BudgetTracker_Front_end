@@ -68,20 +68,28 @@ function App() {
     //axios call to get_user
     axios.get(`${URL}/user/${userObject.email}`)
     .then((res)=>{
-      console.log("exist user!")
-      setUser(res.data)
+      console.log("exist user!");
+      setUser(res.data);
+      return res.data;
     })
     .catch((err)=>{
       console.log(err.response);
       axios.post(`${URL}/user`, userObject)
       .then((res) => {
-        console.log("we are creating new user!")
-        const newUser = {"user_id": res.data.id,"email": userObject.email, "name": userObject.name}
-        setUser(newUser)
+        console.log("we are creating new user!");
+        const newUser = {"user_id": res.data.id,"email": userObject.email, "name": userObject.name};
+        setUser(newUser);
+        return newUser;
     })
       .catch(() => {
         console.log("Error posting a new user")
       })
+    })
+    .then((userFromResponse) => {
+      //do stuff with defined user object
+      getUserCategories(userFromResponse.user_id);
+      getBudget(userFromResponse.user_id);
+      getExpenses(userFromResponse.user_id);
     })
   }
 
