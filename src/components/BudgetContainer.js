@@ -31,14 +31,13 @@ const BudgetContainer = (props) => {
     if (currentBudget.amount === 0 || currentBudget.amount === null) {
       setDisableSubmit(true);
     } else {
-      setCurrentBudget(false);
+      setDisableSubmit(false);
     }
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
     props.addBudget(currentBudget);
-    setCurrentBudget(defaultBudget);
   };
 
   return(

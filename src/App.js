@@ -78,7 +78,7 @@ function App() {
       axios.post(`${URL}/user`, userObject)
       .then((res) => {
         console.log("we are creating new user!");
-        const newUser = {"user_id": res.data.id,"email": userObject.email, "name": userObject.name};
+        const newUser = {"user_id": res.data.user_id,"email": userObject.email, "name": userObject.name};
         setUser(newUser);
         return newUser;
     })
@@ -91,6 +91,9 @@ function App() {
       getUserCategories(userFromResponse.user_id);
       getBudget(userFromResponse.user_id);
       getExpenses(userFromResponse.user_id);
+    })
+    .catch((err) => {
+      console.log(err.response);
     })
   }
 
