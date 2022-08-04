@@ -11,7 +11,7 @@ import { getDatasetAtEvent } from "react-chartjs-2";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [date, setDate] = useState({'month': null, 'year': 2022});
+  const [date, setDate] = useState({'month': 8, 'year': 2022});
   const [defaultCategories, setDefaultCategories] = useState([]);
   const [userCategories, setUserCategories] = useState([]);
   const [budget, setBudget] = useState(null);

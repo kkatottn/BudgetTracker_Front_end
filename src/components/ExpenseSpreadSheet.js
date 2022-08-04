@@ -15,7 +15,7 @@ const ExpenseSpreadSheet = (props) => {
   const thisExpenses = props.expenses.filter((expense) => 
     expense.category_id === thisCategory_id
   );
-  console.log(thisExpenses);
+  // console.log(thisExpenses);
   let expenseDatas = null;
   if (thisExpenses.length === 0){
     expenseDatas = emptyExpenses

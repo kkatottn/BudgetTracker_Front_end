@@ -5,10 +5,10 @@ import { useState } from "react";
 
 const defaultForm = {
   description: "",
-  amount: null,
-  month:null,
+  amount: "",
+  month: "",
   year:2022,
-  category_id: null
+  category_id: ""
 };
 
 const NewExpenseForm = (props) => {
