@@ -252,15 +252,12 @@ function App() {
         changeMonth={changeMonth}
         defaultCategories={defaultCategories}
         addExpense={addExpense}/>
-        <section>
-          <h3>Budgeting</h3>
-          <BudgetContainer 
-          budget={budget} 
-          month={date.month} 
-          year={date.year} 
-          addBudget={addBudget} 
-          editBudget={editBudget}/>
-        </section>
+        <BudgetContainer 
+        budget={budget} 
+        month={date.month} 
+        year={date.year} 
+        addBudget={addBudget} 
+        editBudget={editBudget}/>
       
       </div>
     );
