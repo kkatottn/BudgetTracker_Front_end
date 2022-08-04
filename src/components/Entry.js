@@ -12,7 +12,9 @@ const Entry = (props) => {
     </div>
     <div id="expense-container">
       <ExpenseContainer
-      defaultCategories={props.defaultCategories}/>
+      defaultCategories={props.defaultCategories}
+      addExpense={props.addExpense}
+      date={props.date}/>
     </div>
     <div id="category-form">
       <NewCategoryForm/>

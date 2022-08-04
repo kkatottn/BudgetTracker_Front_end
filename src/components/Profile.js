@@ -12,7 +12,9 @@ const Profile = (props) => {
       <div id="entry">
           <Entry 
           changeMonth={props.changeMonth}
-          defaultCategories={props.defaultCategories}/>
+          defaultCategories={props.defaultCategories}
+          addExpense={props.addExpense}
+          date={props.date}/>
       </div>
     </div>
     );

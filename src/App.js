@@ -5,7 +5,11 @@ import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
 import { DateTime } from 'luxon';
+<<<<<<< HEAD
 import BudgetContainer from "./components/BudgetContainer";
+=======
+import { getDatasetAtEvent } from "react-chartjs-2";
+>>>>>>> eae95dc3d8b046c18081db7c87fc4667066012a9
 //import env from "react-dotenv";
 
 function App() {
@@ -22,13 +26,15 @@ function App() {
   const handleCallbackResponse = (response) => {
     //console.log("ID Token: " + response.credential);
     const userObject = jwt_decode(response.credential);
-    //handleUser(userObject.email)
-    setUser(userObject);
+    // setUser(userObject);
+    //console.log(userObject.email);
+    handleUser(userObject);
+
     //we can access to full name with .name, email with .email, given_name, family_name
     //console.log("this is id", GOOGLE_CLIENT_ID);
   }
 
-  const URL = "https://kashnote.herokuapp.com"
+  const URL = "https://kashnote-server.herokuapp.com"
 
   useEffect(() => {
     /*global google*/
@@ -43,6 +49,13 @@ function App() {
       width: "350px", // maximum width : 400px
       shape: "circle", // rectangular
     });
+
+    getDate();
+    getDefaultCategories();
+    // getUserCategories(user.user_id);
+    // getBudget(user.user_id);
+    // getExpenses(user.user_id);
+    
   }, []);
 
   const getDate = () => {
@@ -55,21 +68,32 @@ function App() {
   }
 
 
-  const handleUser = (user_email) => {
+  const handleUser = (userObject) => {
     //axios call to get_user
-    axios.get(`${URL}/user/${user.email}`)
+    axios.get(`${URL}/user/${userObject.email}`)
     .then((res)=>{
-      setUser(res)
+      console.log("exist user!");
+      setUser(res.data);
+      return res.data;
     })
-    .catch(()=>{
-      axios.post(`${URL}/user`, {params:{'id_token': user.id_token, 'email': user.email, 'name': user.name}})
+    .catch((err)=>{
+      console.log(err.response);
+      axios.post(`${URL}/user`, userObject)
       .then((res) => {
-        const newUser = {"user_id": res.id, "id_token": user.id_token, "email": user.email, "name": user.name}
-        setUser(newUser)
+        console.log("we are creating new user!");
+        const newUser = {"user_id": res.data.id,"email": userObject.email, "name": userObject.name};
+        setUser(newUser);
+        return newUser;
     })
-      .catch((err) => {
+      .catch(() => {
         console.log("Error posting a new user")
       })
+    })
+    .then((userFromResponse) => {
+      //do stuff with defined user object
+      getUserCategories(userFromResponse.user_id);
+      getBudget(userFromResponse.user_id);
+      getExpenses(userFromResponse.user_id);
     })
   }
 
@@ -79,7 +103,14 @@ function App() {
     // .catch -> return error msg
     axios.get(`${URL}/category`)
     .then((res) => {
-      setDefaultCategories(res["default categories"]);
+      // let allDefaultCate = []
+      // const dataList = res.data["default categories"];
+      // for (const data of dataList) {
+      //   allDefaultCate.push(data);
+      // }
+      // setDefaultCategories(allDefaultCate);      
+      setDefaultCategories(res.data["default categories"]);
+      
     })
     .catch(() => {
       console.log("something wrong with get default categories!");
@@ -92,7 +123,7 @@ function App() {
     // .catch -> return err msg
     axios.get(`${URL}/${user_id}/category`, {params:{"month" : date.month, "year" : date.year}})
     .then((res) => {
-      setUserCategories(res["user categories"]);
+      setUserCategories(res.data["user categories"]);
     })
     .catch(() => {
       console.log("something wrong with get user categories!");
@@ -106,7 +137,7 @@ function App() {
     axios.get(`${URL}/${user_id}/budget`,{params: {"month" : date.month, "year" : date.year}})
     .then((res) => {
       if ("amount" in res){
-        setBudget(res["amount"])  
+        setBudget(res.data["amount"])  
       }
     })
     .catch(() => {
@@ -121,7 +152,7 @@ function App() {
     // .catch -> return .... 
     axios.get(`${URL}/${user_id}/expense`, {params: {"id": user.user_id, "month": date.month, "year": date.year}})
     .then((res) => {
-      setExpenses(res["user expenses"])
+      setExpenses(res.data["user expenses"])
     })
     .catch(() => {
       console.log("Something went wrong retrieving user expenses")
@@ -139,7 +170,7 @@ function App() {
     .then((res) => {
       const newExpense = {
         "amount" : request_body.amount,
-        "description" : res.description,
+        "description" : res.data.description,
         "month" : request_body.month,
         "year" : request_body.year,
         "category_id" : request_body.category_id
@@ -177,7 +208,7 @@ function App() {
     // .then -> setBudget
     axios.post(`${URL}/${user.user_id}/budget`, request_body)
     .then((res) => {
-      const newBudget = {"amount": res["amount"], "month": request_body.month, "year": request_body.year}
+      const newBudget = {"amount": res.data["amount"], "month": request_body.month, "year": request_body.year}
       setBudget(newBudget)
     })
     .catch(() => {
@@ -220,8 +251,10 @@ function App() {
       <div>
         <Main 
         user={user}
+        date={date}
         changeMonth={changeMonth}
-        defaultCategories={defaultCategories}/>
+        defaultCategories={defaultCategories}
+        addExpense={addExpense}/>
         <section>
           <h3>Budgeting</h3>
           <BudgetContainer 
@@ -231,7 +264,7 @@ function App() {
           addBudget={addBudget} 
           editBudget={editBudget}/>
         </section>
-        
+      
       </div>
     );
   }

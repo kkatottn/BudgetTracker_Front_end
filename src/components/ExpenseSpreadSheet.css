@@ -1,0 +1,11 @@
+#gridsheet {
+    width: 100%;
+    height: 100%;
+}
+
+
+.SpreadsheetGrid__headCell {
+    background-color: #3d8180;
+    /* want to avoid to use !important */
+    /* background-color: #3d8180 !important; */
+}
