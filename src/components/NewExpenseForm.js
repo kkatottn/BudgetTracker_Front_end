@@ -9,7 +9,7 @@ const NewExpenseForm = (props) => {
     description: "",
     amount: "",
     month: props.date.month,
-    year:2022,
+    year: props.date.year,
     category_id: props.defcategory.category_id
   };
 
