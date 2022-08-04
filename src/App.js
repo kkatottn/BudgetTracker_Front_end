@@ -5,11 +5,8 @@ import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
 import { DateTime } from 'luxon';
-<<<<<<< HEAD
 import BudgetContainer from "./components/BudgetContainer";
-=======
 import { getDatasetAtEvent } from "react-chartjs-2";
->>>>>>> eae95dc3d8b046c18081db7c87fc4667066012a9
 //import env from "react-dotenv";
 
 function App() {
