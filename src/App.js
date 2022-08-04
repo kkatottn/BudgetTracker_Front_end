@@ -257,16 +257,10 @@ function App() {
         defaultCategories={defaultCategories}
         userCategories
         addExpense={addExpense}
-        />
-
-        <BudgetContainer 
-        budget={budget} 
-        month={date.month} 
-        year={date.year} 
-        addBudget={addBudget} 
         editBudget={editBudget}
-        />
-      
+        addBudget={addBudget}
+        budget={addBudget}
+        />    
       </div>
     );
   }

@@ -21,7 +21,14 @@ const Main = (props) => {
         </div>
       <div id="extra-feature">
         <div id="budget-container">
-          <BudgetContainer user={props.user}/>
+          <BudgetContainer 
+            user={props.user}
+            budget={props.budget} 
+            month={props.date.month} 
+            year={props.date.year} 
+            addBudget={props.addBudget} 
+            editBudget={props.editBudget}
+        />
           </div>
         <div id="chart-container">
           <ChartContainer/>
