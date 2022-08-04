@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
 import { DateTime } from 'luxon';
+import BudgetContainer from "./components/BudgetContainer";
 //import env from "react-dotenv";
 
 function App() {
@@ -221,6 +222,16 @@ function App() {
         user={user}
         changeMonth={changeMonth}
         defaultCategories={defaultCategories}/>
+        <section>
+          <h3>Budgeting</h3>
+          <BudgetContainer 
+          budget={budget} 
+          month={date.month} 
+          year={date.year} 
+          addBudget={addBudget} 
+          editBudget={editBudget}/>
+        </section>
+        
       </div>
     );
   }
