@@ -14,7 +14,7 @@ function App() {
   const [date, setDate] = useState({'month': 8, 'year': 2022});
   const [defaultCategories, setDefaultCategories] = useState([]);
   const [userCategories, setUserCategories] = useState([]);
-  const [budget, setBudget] = useState(null);
+  const [budget, setBudget] = useState("");
   const [expenses, setExpenses] = useState([]);
 
   const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
@@ -60,7 +60,7 @@ function App() {
     // setDate 
     const today = new Date();
     //const year = today.getFullYear();
-    const month = today.getMonth();
+    const month = today.getMonth()+1;
     setDate({...date, "month":month})
   }
 
@@ -91,6 +91,7 @@ function App() {
       getUserCategories(userFromResponse.user_id);
       getBudget(userFromResponse.user_id);
       getExpenses(userFromResponse.user_id);
+    
     })
     .catch((err) => {
       console.log(err.response);
@@ -136,9 +137,10 @@ function App() {
     // .catch -> return err msg 
     axios.get(`${URL}/${user_id}/budget`,{params: {"month" : date.month, "year" : date.year}})
     .then((res) => {
-      if ("amount" in res){
-        setBudget(res.data["amount"])  
-      }
+      setBudget(res.data["amount"]);
+      console.log("setting budget works?")
+      console.log(budget);
+      console.log(res.data["amount"])
     })
     .catch(() => {
       console.log("something wrong with get user budget!");
