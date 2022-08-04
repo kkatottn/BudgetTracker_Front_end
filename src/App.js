@@ -136,9 +136,6 @@ function App() {
     axios.get(`${URL}/${user_id}/budget`,{params: {"month" : date.month, "year" : date.year}})
     .then((res) => {
       setBudget(res.data["amount"]);
-      console.log("setting budget works?")
-      console.log(budget);
-      console.log(res.data["amount"])
     })
     .catch(() => {
       console.log("something wrong with get user budget!");
@@ -254,7 +251,7 @@ function App() {
         addExpense={addExpense}
         editBudget={editBudget}
         addBudget={addBudget}
-        budget={addBudget}
+        budget={budget}
         />    
       </div>
     );

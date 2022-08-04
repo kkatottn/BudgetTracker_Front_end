@@ -6,7 +6,7 @@ const BudgetContainer = ({user, budget, month, year, addBudget, editBudget}) => 
   //return(render) budget, budgetForm components?
   let budgetMessage = null;
   let firstBudget = true;
-  if (budget === null || budget===undefined) {
+  if (budget === null) {
     budgetMessage = "No budget has been set for this month!"
   }else {
     budgetMessage = "Current budget: "
@@ -42,8 +42,10 @@ const BudgetContainer = ({user, budget, month, year, addBudget, editBudget}) => 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (firstBudget === true){
+      console.log("I'm adding new budget")
       addBudget(currentBudget);
     }else {
+      console.log("I'm editing the budget")
       editBudget(currentBudget)
     }
     
