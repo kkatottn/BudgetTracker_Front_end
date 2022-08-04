@@ -3,9 +3,14 @@
     height: 100%;
 }
 
+/* .SpreadsheetGrid__header {
+    font-weight: bold;
+} */
 
 .SpreadsheetGrid__headCell {
-    background-color: #3d8180;
+    background-color: #3d8180 !important;
+    /* font-size: 13px !important;
+    text-align: center !important; */
     /* want to avoid to use !important */
     /* background-color: #3d8180 !important; */
 }
