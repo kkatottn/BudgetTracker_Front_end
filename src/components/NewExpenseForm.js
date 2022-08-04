@@ -3,15 +3,16 @@ import PropTypes from "prop-types";
 import "./NewExpenseForm.css";
 import { useState } from "react";
 
-const defaultForm = {
-  description: "",
-  amount: "",
-  month: "",
-  year:2022,
-  category_id: ""
-};
 
 const NewExpenseForm = (props) => {
+  const defaultForm = {
+    description: "",
+    amount: "",
+    month: props.date.month,
+    year:2022,
+    category_id: props.defcategory.category_id
+  };
+
   const [formData, setFormData] = useState(defaultForm);
 
   const handleFormInput = (event) => {
@@ -22,8 +23,9 @@ const NewExpenseForm = (props) => {
     // make a new object based on form object
     const newForm = { ...formData };
     newForm[name] = value;
-    newForm['month'] = props.date.month;
-    newForm['category_id'] = props.defcategory.category_id;
+    // console.log(newForm);
+    // newForm['month'] = props.date.month;
+    // newForm['category_id'] = props.defcategory.category_id;
     // console.log(newForm);
     setFormData(newForm);
   };

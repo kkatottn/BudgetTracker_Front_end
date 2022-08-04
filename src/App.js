@@ -60,7 +60,7 @@ function App() {
     // setDate 
     const today = new Date();
     //const year = today.getFullYear();
-    const month = today.getMonth()+1;
+    const month = today.getMonth() + 1;
     setDate({...date, "month":month})
   }
 
@@ -259,16 +259,10 @@ function App() {
         defaultCategories={defaultCategories}
         userCategories
         addExpense={addExpense}
-        />
-
-        <BudgetContainer 
-        budget={budget} 
-        month={date.month} 
-        year={date.year} 
-        addBudget={addBudget} 
         editBudget={editBudget}
-        />
-      
+        addBudget={addBudget}
+        budget={addBudget}
+        />    
       </div>
     );
   }
