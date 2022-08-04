@@ -12,8 +12,10 @@ const Main = (props) => {
       <div id="profile-container">
         <Profile 
         user={props.user}
+        expenses={props.expenses}
         changeMonth={props.changeMonth}
         defaultCategories={props.defaultCategories}
+        userCategories={props.userCategories}
         addExpense={props.addExpense}
         date={props.date}/>
         </div>

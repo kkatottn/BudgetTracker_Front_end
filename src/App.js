@@ -147,7 +147,7 @@ function App() {
     // axios call to get expenses
     // .then -> setExpenses
     // .catch -> return .... 
-    axios.get(`${URL}/${user_id}/expense`, {params: {"id": user.user_id, "month": date.month, "year": date.year}})
+    axios.get(`${URL}/${user_id}/expense`, {params: {"id": user_id, "month": date.month, "year": date.year}})
     .then((res) => {
       setExpenses(res.data["user expenses"])
     })
@@ -249,15 +249,20 @@ function App() {
         <Main 
         user={user}
         date={date}
+        expenses={expenses}
         changeMonth={changeMonth}
         defaultCategories={defaultCategories}
-        addExpense={addExpense}/>
+        userCategories
+        addExpense={addExpense}
+        />
+
         <BudgetContainer 
         budget={budget} 
         month={date.month} 
         year={date.year} 
         addBudget={addBudget} 
-        editBudget={editBudget}/>
+        editBudget={editBudget}
+        />
       
       </div>
     );

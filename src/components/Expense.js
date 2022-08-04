@@ -21,7 +21,13 @@ const Expense = (props) => {
         <button id="addExpense" onClick={togglePopup}>+</button>
       </div>
       <div id="spread-sheet">
-        <ExpenseSpreadSheet addExpense={props.addExpense} date={props.date} defcategory_id={props.defcategory.category_id}/>
+        <ExpenseSpreadSheet 
+          addExpense={props.addExpense} 
+          date={props.date} 
+          defcategory_id={props.defcategory.category_id}
+          expenses={props.expenses}
+          />
+        
         {isOpen && (
         <NewExpenseForm
           addExpense={props.addExpense}

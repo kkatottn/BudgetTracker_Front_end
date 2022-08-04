@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes, { number } from "prop-types";
+import PropTypes from "prop-types";
 import "./NewExpenseForm.css";
 import { useState } from "react";
 
@@ -60,6 +60,8 @@ const NewExpenseForm = (props) => {
             <span id="input">
               <input
                 type="number"
+                step="0.01" 
+                min="0"
                 name="amount"
                 value={formData.amount}
                 onChange={handleFormInput}>
@@ -67,10 +69,6 @@ const NewExpenseForm = (props) => {
             </span>
             <button type="submit">Add</button><br/>
           </div>
-          
-
-          
-        
           </fieldset></form>
       </div>
     </div>

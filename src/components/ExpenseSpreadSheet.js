@@ -2,20 +2,27 @@ import React from "react";
 import "./ExpenseSpreadSheet.css"
 import { Grid, Input} from 'react-spreadsheet-grid'
 
-const ExpenseSpreadSheet = () => {
+const ExpenseSpreadSheet = (props) => {
 
   const emptyExpenses = [
     {category_id: 'category1', description: '', amount: '' },
-    // {category_id: 'category2', description: '', amount: '' },
-    // {category_id: 'category3', description: '', amount: '' },
-    // {category_id: 'category4', description: '', amount: '' },
-    // {category_id: 'category5', description: '', amount: '' },
-    // {category_id: 'category6', description: '', amount: '' },
-    // {category_id: 'category7', description: '', amount: '' },
-    // {category_id: 'category8', description: '', amount: '' },
-    // {category_id: 'category9', description: '', amount: '' },
-    // {category_id: 'category10', description: '', amount: '' },
 ];
+
+  const thisCategory_id = props.defcategory_id;
+  // const expenses = props.expenses; 
+  //this is all expenses for specific month and year
+  //need to render depend on category : using filter?
+  const thisExpenses = props.expenses.filter((expense) => 
+    expense.category_id === thisCategory_id
+  );
+  console.log(thisExpenses);
+  let expenseDatas = null;
+  if (thisExpenses.length === 0){
+    expenseDatas = emptyExpenses
+  }
+  else{
+    expenseDatas = thisExpenses
+  };
 
   return(
     <div id="gridsheet">
@@ -24,20 +31,20 @@ const ExpenseSpreadSheet = () => {
       columns={[
         {
           title: () => 'Description',
-          value: (emptyExpense, { focus }) => {
+          value: (expenseDatas, { focus }) => {
               return (
                   <Input
-                    value={emptyExpense.description}
+                    value={expenseDatas.description}
                     focus={focus}
                   />
               );
           }
         }, {
           title: () => 'Amount',
-          value: (emptyExpense, { focus }) => {
+          value: (expenseDatas, { focus }) => {
               return (
                 <Input
-                value={emptyExpense.amount}
+                value={expenseDatas.amount}
                 focus={focus}
                 // onclick={togglePopup}
               />
@@ -45,8 +52,8 @@ const ExpenseSpreadSheet = () => {
           }
         }
       ]}
-      rows={emptyExpenses}
-      getRowKey={emptyExpense => emptyExpense.category_id}
+      rows={expenseDatas}
+      getRowKey={expenseData => expenseData.category_id}
     />
 
     </div>);

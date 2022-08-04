@@ -13,8 +13,10 @@ const Profile = (props) => {
           <Entry 
           changeMonth={props.changeMonth}
           defaultCategories={props.defaultCategories}
+          userCategories={props.userCategories}
           addExpense={props.addExpense}
-          date={props.date}/>
+          date={props.date}
+          expenses={props.expenses}/>
       </div>
     </div>
     );

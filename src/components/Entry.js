@@ -13,8 +13,11 @@ const Entry = (props) => {
     <div id="expense-container">
       <ExpenseContainer
       defaultCategories={props.defaultCategories}
+      userCategories={props.userCategories}
       addExpense={props.addExpense}
-      date={props.date}/>
+      date={props.date}
+      expenses={props.expenses}
+      />
     </div>
     <div id="category-form">
       <NewCategoryForm/>
