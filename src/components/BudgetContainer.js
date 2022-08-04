@@ -2,12 +2,19 @@ import React from "react";
 import "./BudgetContainer.css"
 import { useState } from "react";
 
-const BudgetContainer = (props) => {
+const BudgetContainer = ({user, budget, month, year, addBudget, editBudget}) => {
   //return(render) budget, budgetForm components?
-  let budgetMessage = "No budget has been set for this month!"
+  let budgetMessage = null;
+  let firstBudget = true;
+  if (budget === null || budget===undefined) {
+    budgetMessage = "No budget has been set for this month!"
+  }else {
+    budgetMessage = "Current budget: "
+    firstBudget = false;
+  }
 
   const defaultBudget = {
-    amount: 1000,
+    amount: budget,
     month: 0,
     year: 0
   };
@@ -16,17 +23,14 @@ const BudgetContainer = (props) => {
   let [currentBudget, setCurrentBudget] = useState(defaultBudget)
   let [disableSubmit, setDisableSubmit] = useState(true);
 
-  if (currentBudget.amount !== null) {
-    budgetMessage = "Current budget is:"
-  }
   
   const onFormChange = (event) => {
     const stateName = event.target.name;
     const inputValue = event.target.value;
     const newFormData = {...currentBudget};
     newFormData[stateName] = inputValue;
-    newFormData["month"] = props.month;
-    newFormData["year"] = props.year;
+    newFormData["month"] = month;
+    newFormData["year"] = year;
     setCurrentBudget(newFormData);
     if (currentBudget.amount === 0 || currentBudget.amount === null) {
       setDisableSubmit(true);
@@ -37,7 +41,12 @@ const BudgetContainer = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.addBudget(currentBudget);
+    if (firstBudget === true){
+      addBudget(currentBudget);
+    }else {
+      editBudget(currentBudget)
+    }
+    
   };
 
   return(
