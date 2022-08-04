@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
 import { DateTime } from 'luxon';
+import BudgetContainer from "./components/BudgetContainer";
 import { getDatasetAtEvent } from "react-chartjs-2";
 //import env from "react-dotenv";
 
@@ -251,6 +252,13 @@ function App() {
         changeMonth={changeMonth}
         defaultCategories={defaultCategories}
         addExpense={addExpense}/>
+        <BudgetContainer 
+        budget={budget} 
+        month={date.month} 
+        year={date.year} 
+        addBudget={addBudget} 
+        editBudget={editBudget}/>
+      
       </div>
     );
   }
