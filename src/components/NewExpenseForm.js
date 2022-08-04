@@ -23,10 +23,7 @@ const NewExpenseForm = (props) => {
     // make a new object based on form object
     const newForm = { ...formData };
     newForm[name] = value;
-    // console.log(newForm);
-    // newForm['month'] = props.date.month;
-    // newForm['category_id'] = props.defcategory.category_id;
-    // console.log(newForm);
+
     setFormData(newForm);
   };
 

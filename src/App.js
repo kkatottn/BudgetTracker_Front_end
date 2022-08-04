@@ -55,6 +55,13 @@ function App() {
     
   }, []);
 
+  useEffect(() => {
+    if (date && user) {
+      getExpenses(user.user_id);
+      getBudget(user.user_id);
+    }
+  }, [date, budget]);
+
   const getDate = () => {
     // grab date from date time
     // setDate 
@@ -98,17 +105,8 @@ function App() {
   }
 
   const getDefaultCategories = () => {
-    // axios call to get_all_default_categories
-    // .then -> setDefaultCategories 
-    // .catch -> return error msg
     axios.get(`${URL}/category`)
-    .then((res) => {
-      // let allDefaultCate = []
-      // const dataList = res.data["default categories"];
-      // for (const data of dataList) {
-      //   allDefaultCate.push(data);
-      // }
-      // setDefaultCategories(allDefaultCate);      
+    .then((res) => {    
       setDefaultCategories(res.data["default categories"]);
       
     })
@@ -147,9 +145,6 @@ function App() {
 
 
   const getExpenses = (user_id) => {
-    // axios call to get expenses
-    // .then -> setExpenses
-    // .catch -> return .... 
     axios.get(`${URL}/${user_id}/expense`, {params: {"id": user_id, "month": date.month, "year": date.year}})
     .then((res) => {
       setExpenses(res.data["user expenses"])
@@ -160,12 +155,6 @@ function App() {
   }
 
   const addExpense = (request_body) => {
-    // key => amount, category_id, description, month, year
-    // axios post with data in request body
-    // .then -> newExpenses = getExpenses
-    // newExpense = {'description': data.descript}
-    // setExpenses({expenses..., newExpense})
-    //          setExpenses(newExpenses)
     axios.post(`${URL}/${user.user_id}/expense`, request_body)
     .then((res) => {
       const newExpense = {
@@ -232,8 +221,12 @@ function App() {
 
   const changeMonth = (newMonth) => {
     setDate({...date, "month": newMonth});
-    console.log("month changed!")
+    console.log("month changed! to ", newMonth);
+    console.log(user);
+    //getExpenses(user.user_id, newMonth);
   };
+
+
 
 
   //Handling render different page depend on user status

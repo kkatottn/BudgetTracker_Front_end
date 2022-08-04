@@ -9,13 +9,10 @@ const ExpenseSpreadSheet = (props) => {
 ];
 
   const thisCategory_id = props.defcategory_id;
-  // const expenses = props.expenses; 
-  //this is all expenses for specific month and year
-  //need to render depend on category : using filter?
   const thisExpenses = props.expenses.filter((expense) => 
     expense.category_id === thisCategory_id
   );
-  // console.log(thisExpenses);
+
   let expenseDatas = null;
   if (thisExpenses.length === 0){
     expenseDatas = emptyExpenses
@@ -46,14 +43,13 @@ const ExpenseSpreadSheet = (props) => {
                 <Input
                 value={expenseDatas.amount}
                 focus={focus}
-                // onclick={togglePopup}
               />
               );
           }
         }
       ]}
       rows={expenseDatas}
-      getRowKey={expenseData => expenseData.category_id}
+      getRowKey={expenseData => expenseData.expense_id}
     />
 
     </div>);
