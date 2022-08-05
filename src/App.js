@@ -209,6 +209,21 @@ function App() {
     setDate({...date, "month": newMonth});
   };
 
+  const addUserCategory = (request_body) => {
+    axios.post(`${URL}/${user.user_id}/category`, request_body)
+    .then((res) => {
+      const newUserCategory = {
+        "title" : request_body.title,
+        "month" : request_body.month,
+        "year" : request_body.year,
+        "category_id" : res.id
+      };
+      setUserCategories([...userCategories, newUserCategory]);
+    })
+    .catch(() => {
+      console.log("something wrong with add new user category!");
+    })
+  }
 
   //Handling render different page depend on user status
   if (user === null) {
@@ -232,6 +247,7 @@ function App() {
         addBudget={addBudget}
         budget={budget}
         getExpenseTotal={getMonthExpenseTotal}
+        addUserCategory={addUserCategory}
         />    
       </div>
     );

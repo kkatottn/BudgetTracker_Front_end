@@ -55,7 +55,7 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpense
   };
 
   return(
-  <div id="budget-container">
+  <div id="budget">
     {/* This is container for {props.user.name}'s budget and set budget form
     No need seperate components
     Have 2 features -> show set user's budget, 

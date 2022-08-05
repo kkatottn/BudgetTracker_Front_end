@@ -21,7 +21,10 @@ const Main = (props) => {
         defaultCategories={props.defaultCategories}
         userCategories={props.userCategories}
         addExpense={props.addExpense}
-        date={props.date}/>
+        date={props.date}
+        addUserCategory={props.addUserCategory}
+        />
+
         </div>
       <div id="extra-feature">
         <div id="budget-container">
@@ -36,7 +39,9 @@ const Main = (props) => {
         />
           </div>
         <div id="chart-container">
-          <ChartContainer/>
+          <ChartContainer
+            defaultCategories={props.defaultCategories}
+            date={props.date}/>
           </div>
       </div>
     </main>
