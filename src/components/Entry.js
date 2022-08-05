@@ -8,7 +8,7 @@ const Entry = (props) => {
   return(
   <div id="entry-container">
     <div id="navigation">
-      <Navigation changeMonth={props.changeMonth}/>
+      <Navigation changeMonth={props.changeMonth} date={props.date}/>
     </div>
     <div id="expense-container">
       <ExpenseContainer
