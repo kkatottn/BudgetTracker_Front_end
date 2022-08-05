@@ -10,7 +10,7 @@ const ChartContainer = (props) => {
 
   const handleChartChoice = (chart) => {
     setSelectChart(chart);
-    console.log(chart);
+    // console.log(chart);
   };
 
   return(
@@ -19,7 +19,8 @@ const ChartContainer = (props) => {
       <Chart
         selectChart={selectChart}
         defaultCategories={props.defaultCategories}
-        date={props.date}/>
+        date={props.date}
+        expenses={props.expenses}/>
     </div>
     
     <div>

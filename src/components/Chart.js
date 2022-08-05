@@ -19,10 +19,15 @@ const Chart = (props) => {
 
   const currentChart = props.selectChart;
   const labels = props.defaultCategories.map((defCat) => {return defCat.title});
+  console.log("this is categories",labels);
+
+  const allExpenses = props.expenses;
+  console.log("this is all expenses of this user at this month",allExpenses);
 
   const monthNum = props.date.month;
   const monthDic = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   const selectedMonth = monthDic[monthNum-1];
+
 
   const options = {
     responsive: true,
