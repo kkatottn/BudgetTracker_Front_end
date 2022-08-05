@@ -30,11 +30,11 @@ function App() {
       callback: handleCallbackResponse,
     });
 
-    google.accounts.id.renderButton(document.getElementById("signIn"), {
+    google.accounts.id.renderButton(document.getElementById("gmailSignIn"), {
       theme: "outline", // filled_blue, filled_black
       size: "large",
-      width: "350px", // maximum width : 400px
-      shape: "circle", // rectangular
+      width: "330px", // maximum width : 400px
+      // shape: "circle", // rectangular
     });
 
     getDate();
