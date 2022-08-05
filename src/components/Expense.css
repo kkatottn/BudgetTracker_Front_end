@@ -1,12 +1,12 @@
 #expense {
     border: #3d8180 solid 2px;
     width: 30%;
-    height: 95%;
+    height: 98%;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 8% 92%;
     align-content: center;
-
+    margin : 0 7px;
 }
 
 #title {
