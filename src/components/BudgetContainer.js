@@ -5,14 +5,16 @@ import { useState } from "react";
 const BudgetContainer = ({budget, month, year, addBudget, editBudget}) => {
   //return(render) budget, budgetForm components?
   let budgetMessage = null;
-  if (budget === null) {
-    budgetMessage = "No budget has been set for this month!"
+  let firstBudget = true;
+  if (budget === 0) {
+    budgetMessage = "No budge has been set for this month!"
   }else {
-    budgetMessage = "Current budget: "
+    budgetMessage = "Current budget is: "
+    firstBudget = false;
   }
 
   const defaultBudget = {
-    amount: "",
+    amount: 0,
     month: 0,
     year: 0
   };
@@ -30,7 +32,7 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget}) => {
     newFormData["month"] = month;
     newFormData["year"] = year;
     setCurrentBudget(newFormData);
-    if (currentBudget.amount === 0 || currentBudget.amount === null) {
+    if (currentBudget.amount === "" || currentBudget.amount === null || currentBudget.amount === 0) {
       setDisableSubmit(true);
     } else {
       setDisableSubmit(false);
@@ -39,7 +41,7 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (currentBudget === null){
+    if (firstBudget === true){
       console.log("I'm adding new budget")
       addBudget(currentBudget);
     }else {
