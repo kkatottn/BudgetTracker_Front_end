@@ -1,0 +1,29 @@
+#chartWithSelector{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 92% 8%;
+}
+
+.chartButton {
+    background-color: #efffff;
+    border: #3d8180 solid 1px;
+    font-weight: bold;
+    color: #1a3931;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    border-radius: 10%;
+    box-shadow: 0px 0px 2px 2px #1a3931;
+}
+
+.charButton:hover,:focus, .active {
+    background-color: #1a3931;
+    transition: 0.7s;
+    color:#efffff;
+    font-weight:bold;
+}

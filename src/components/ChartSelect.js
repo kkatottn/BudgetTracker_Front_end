@@ -1,10 +1,10 @@
-import React from "react";
-import "./ChartSelect.css";
+// import React from "react";
+// import "./ChartSelect.css";
 
-const ChartSelect = () => {
-  return(<div>
-    This is for chart choices
-  </div>);
-}
+// const ChartSelect = () => {
+//   return(<div>
+//     This is for chart choices
+//   </div>);
+// }
 
-export default ChartSelect;
+// export default ChartSelect;

@@ -38,7 +38,9 @@ const Main = (props) => {
         />
           </div>
         <div id="chart-container">
-          <ChartContainer/>
+          <ChartContainer
+            defaultCategories={props.defaultCategories}
+            date={props.date}/>
           </div>
       </div>
     </main>
