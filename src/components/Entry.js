@@ -20,7 +20,9 @@ const Entry = (props) => {
       />
     </div>
     <div id="category-form">
-      <NewCategoryForm/>
+      <NewCategoryForm
+        addUserCategory={props.addUserCategory}
+        date={props.date}/>
     </div>
   </div>);
 }

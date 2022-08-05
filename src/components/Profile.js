@@ -16,7 +16,8 @@ const Profile = (props) => {
           userCategories={props.userCategories}
           addExpense={props.addExpense}
           date={props.date}
-          expenses={props.expenses}/>
+          expenses={props.expenses}
+          addUserCategory={props.addUserCategory}/>
       </div>
     </div>
     );
