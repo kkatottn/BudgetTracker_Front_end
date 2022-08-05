@@ -1,12 +1,16 @@
 import React from "react";
 import "./Main.css";
-import Profile from "./Profile.js"
-import BudgetContainer from "./BudgetContainer.js"
-import ChartContainer from "./ChartContainer.js"
+import Profile from "./Profile.js";
+import BudgetContainer from "./BudgetContainer.js";
+import ChartContainer from "./ChartContainer.js";
+import logo from "../images/KashnoteLogo.png";
 
 const Main = (props) => {
   return <div id="main">
-    <header>Kash Note</header>
+    <div id="header">
+        <img id="logo" src={logo} alt="Kash Note Logo"/>
+        <span id="kashnote">Kash Note</span>
+        </div>
     <main>
       {/* This is main page */}
       <div id="profile-container">
