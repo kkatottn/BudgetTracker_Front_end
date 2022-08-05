@@ -180,8 +180,9 @@ function App() {
       const newBudget = {"amount": res.data["amount"], "month": request_body.month, "year": request_body.year}
       setBudget(newBudget.amount);
     })
-    .catch(() => {
+    .catch((err) => {
       console.log("Something went wrong trying to set a new budget!")
+      console.log(err.response)
     })
   };
 
