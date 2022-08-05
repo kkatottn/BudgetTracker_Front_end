@@ -32,6 +32,7 @@ const Main = (props) => {
             year={props.date.year} 
             addBudget={props.addBudget} 
             editBudget={props.editBudget}
+            getExpenseTotal={props.getExpenseTotal}
         />
           </div>
         <div id="chart-container">
