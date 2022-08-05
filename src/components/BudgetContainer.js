@@ -2,19 +2,17 @@ import React from "react";
 import "./BudgetContainer.css"
 import { useState } from "react";
 
-const BudgetContainer = ({user, budget, month, year, addBudget, editBudget}) => {
+const BudgetContainer = ({budget, month, year, addBudget, editBudget}) => {
   //return(render) budget, budgetForm components?
   let budgetMessage = null;
-  let firstBudget = true;
   if (budget === null) {
     budgetMessage = "No budget has been set for this month!"
   }else {
     budgetMessage = "Current budget: "
-    firstBudget = false;
   }
 
   const defaultBudget = {
-    amount: budget,
+    amount: "",
     month: 0,
     year: 0
   };
@@ -41,12 +39,13 @@ const BudgetContainer = ({user, budget, month, year, addBudget, editBudget}) => 
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (firstBudget === true){
+    if (currentBudget === null){
       console.log("I'm adding new budget")
       addBudget(currentBudget);
     }else {
       console.log("I'm editing the budget")
       editBudget(currentBudget)
+      console.log(budget);
     }
     
   };
@@ -58,11 +57,12 @@ const BudgetContainer = ({user, budget, month, year, addBudget, editBudget}) => 
     Have 2 features -> show set user's budget, 
                     -> ability to set their own budget */}
     <h3>{budgetMessage}</h3>
-    <div id="amount">{currentBudget.amount}</div>
+    <div id="amount">{budget}</div>
     <form onSubmit={handleSubmit}>
       <input
         type="number"
         name="amount"
+        value={currentBudget.amount}
         placeholder="Add/Edit budget amount"
         onChange={onFormChange}
       ></input>

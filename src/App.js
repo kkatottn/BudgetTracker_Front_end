@@ -115,7 +115,7 @@ function App() {
   const getBudget = (user_id) => {
     axios.get(`${URL}/${user_id}/budget`,{params: {"month" : date.month, "year" : date.year}})
     .then((res) => {
-      setBudget(res.data["amount"]);
+      setBudget(res.data.amount);
     })
     .catch(() => {
       console.log("something wrong with get user budget!");
@@ -184,7 +184,7 @@ function App() {
   const editBudget = (request_body) => {
     axios.patch(`${URL}/${user.user_id}/budget`, request_body)
     .then(()=> {
-      setBudget({...budget, "amount":request_body["amount"]})
+      setBudget(request_body["amount"])
     })
     .catch(() => {
       console.log("Something went wrong editing the budget!")
