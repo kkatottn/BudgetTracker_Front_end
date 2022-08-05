@@ -11,7 +11,7 @@ function App() {
   const [date, setDate] = useState({'month': 8, 'year': 2022});
   const [defaultCategories, setDefaultCategories] = useState([]);
   const [userCategories, setUserCategories] = useState([]);
-  const [budget, setBudget] = useState("");
+  const [budget, setBudget] = useState(0);
   const [expenses, setExpenses] = useState([]);
 
   const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
@@ -33,7 +33,7 @@ function App() {
     google.accounts.id.renderButton(document.getElementById("signIn"), {
       theme: "outline", // filled_blue, filled_black
       size: "large",
-      width: "350px", // maximum width : 400px
+      width: "20%", // maximum width : 400px
       shape: "circle", // rectangular
     });
 
@@ -115,7 +115,12 @@ function App() {
   const getBudget = (user_id) => {
     axios.get(`${URL}/${user_id}/budget`,{params: {"month" : date.month, "year" : date.year}})
     .then((res) => {
+      if ("msg" in res.data) {
+        setBudget(0)
+      }else {
       setBudget(res.data.amount);
+      }
+      console.log(budget);
     })
     .catch(() => {
       console.log("something wrong with get user budget!");
@@ -173,7 +178,7 @@ function App() {
     axios.post(`${URL}/${user.user_id}/budget`, request_body)
     .then((res) => {
       const newBudget = {"amount": res.data["amount"], "month": request_body.month, "year": request_body.year}
-      setBudget(newBudget)
+      setBudget(newBudget.amount);
     })
     .catch(() => {
       console.log("Something went wrong trying to set a new budget!")
@@ -185,6 +190,7 @@ function App() {
     axios.patch(`${URL}/${user.user_id}/budget`, request_body)
     .then(()=> {
       setBudget(request_body["amount"])
+      console.log(request_body["amount"])
     })
     .catch(() => {
       console.log("Something went wrong editing the budget!")
