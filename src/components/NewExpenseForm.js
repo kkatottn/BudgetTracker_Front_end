@@ -10,7 +10,7 @@ const NewExpenseForm = (props) => {
     amount: "",
     month: props.date.month,
     year: props.date.year,
-    category_id: props.defcategory.category_id
+    category_id: props.category.category_id
   };
 
   const [formData, setFormData] = useState(defaultForm);
@@ -41,7 +41,7 @@ const NewExpenseForm = (props) => {
         </span>
         <form onSubmit={handleFormSubmission}>
           <fieldset>
-            <legend>Add new expense : <span id="selectedCategory">{props.defcategory.title}</span></legend>
+            <legend>Add new expense : <span id="selectedCategory">{props.category.title}</span></legend>
           <div id="des-input">
             <label>Description</label> 
             <span id="input">

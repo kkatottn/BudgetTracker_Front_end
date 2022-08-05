@@ -45,7 +45,7 @@ function App() {
     if (date && user) {
       getExpenses(user.user_id);
       getBudget(user.user_id);
-      // getUserCategories(user.user_id);
+      getUserCategories(user.user_id);
     }
   }, [date, budget]);
 
@@ -212,7 +212,7 @@ function App() {
         expenses={expenses}
         changeMonth={changeMonth}
         defaultCategories={defaultCategories}
-        userCategories
+        userCategories={userCategories}
         addExpense={addExpense}
         editBudget={editBudget}
         addBudget={addBudget}

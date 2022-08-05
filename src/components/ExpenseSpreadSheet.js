@@ -8,7 +8,7 @@ const ExpenseSpreadSheet = (props) => {
     {category_id: 'category1', description: '', amount: '' },
 ];
 
-  const thisCategory_id = props.defcategory_id;
+  const thisCategory_id = props.category_id;
   const thisExpenses = props.expenses.filter((expense) => 
     expense.category_id === thisCategory_id
   );
