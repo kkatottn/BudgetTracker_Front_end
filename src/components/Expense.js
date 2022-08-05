@@ -9,22 +9,22 @@ const Expense = (props) => {
   // const [currentCateID, setCurrentCateID] = useState(null);
   const togglePopup = () => {
     console.log("toggled!!!");
-    console.log(`this is current category's ID!: ${props.defcategory.category_id}`);
-    console.log(`this is current category: ${props.defcategory.title}`)
+    console.log(`this is current category's ID!: ${props.category.category_id}`);
+    console.log(`this is current category: ${props.category.title}`)
     setIsOpen(!isOpen);
   };
 
   return(
     <div id="expense">
       <div id="title">
-        <p>{props.defcategory.title}</p>
+        <p>{props.category.title}</p>
         <button id="addExpense" onClick={togglePopup}>+</button>
       </div>
       <div id="spread-sheet">
         <ExpenseSpreadSheet 
           addExpense={props.addExpense} 
           date={props.date} 
-          defcategory_id={props.defcategory.category_id}
+          category_id={props.category.category_id}
           expenses={props.expenses}
           />
         
@@ -33,7 +33,7 @@ const Expense = (props) => {
           addExpense={props.addExpense}
           handleClose={togglePopup}
           date={props.date}
-          defcategory={props.defcategory}
+          category={props.category}
         />
       )}
       </div>

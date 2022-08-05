@@ -5,16 +5,18 @@ import Expense from "./Expense.js";
 const ExpenseContainer = (props) => {
   //do something with props.userCategories
   //add utility to test carosel
-  const expenseComponents = props.defaultCategories.map((defCat) => {
+  const allCategories = [...props.defaultCategories, ...props.userCategories];
+  // console.log(allCategories);
+  const expenseComponents = allCategories.map((category) => {
     return <Expense 
-              defcategory={defCat} 
+              category={category} 
               addExpense={props.addExpense} 
               date={props.date} 
-              category_id={defCat.category_id}
+              category_id={category.category_id}
               expenses={props.expenses}
               />;
-  }) 
-  
+  });
+    
   return(
     <div id="all-expenses">
       {expenseComponents}
