@@ -12,6 +12,10 @@
     /* align-items: center; */
 }
 
+.selectedMonth {
+    background-color: #1a3931;
+}
+
 a.month.nav-link:focus{
     background-color: #1a3931;
     color: white;
