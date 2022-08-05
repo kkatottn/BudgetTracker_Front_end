@@ -42,19 +42,18 @@
     border: green solid 3px;
 } */
 
-
 #main #extra-feature {
-    border: green solid 3px;
+    /* border: green solid 3px; */
     display:grid;
-    grid-template-columns: 90%;
-    grid-template-rows: 50% 50%;
+    grid-template-columns: 100%;
+    grid-template-rows: 40% 60%;
     justify-content: space-around;
     align-content: center;
     row-gap: 3px;
 }
 
 #budget-container {
-    border: black solid 2px;
+    border: pink solid 2px;
 }
 
 #chart-container { 

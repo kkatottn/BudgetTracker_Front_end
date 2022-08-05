@@ -1,21 +1,22 @@
-#budget-container {
+#budget {
+    height: 100%;
     text-align: center;
     display: grid;
     grid-template-rows: 1fr 2fr 1fr;
 }
 
-#budget-container h3 {
+#budget h3 {
     margin: 10px;
     font-size: 15px;
     grid-row: 1/2;
 }
 
-#budget-container #amount{
+#budget #amount{
     grid-row: 2/3;
     font-size: 20px;
 }
 
-#budget-container input{
+#budget input{
 
     grid-row: 3/4;
     display: inline-block;
@@ -32,13 +33,13 @@
 }
 
 
-#budget-container input:focus{
+#budget input:focus{
     border-color: #1b96ff;
     color: var(--sds-c-input-text-color-focus);
     box-shadow: rgb(130, 167, 198) 0px 0px 3px 0px;
 }
 
-#budget-container input[type="submit"] {
+#budget input[type="submit"] {
 
     display: inline-block;
     outline: none;
@@ -64,12 +65,12 @@
 
 }
 
-#budget-container input[type="submit"]:hover {
+#budget input[type="submit"]:hover {
     color: #fff;
     background-color: #616467;
 }
 
-#budget-container input[type="submit"]:disabled {
+#budget input[type="submit"]:disabled {
     color: #fff;
     background-color: #616467;
 }
