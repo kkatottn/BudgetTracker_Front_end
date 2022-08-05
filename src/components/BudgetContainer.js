@@ -2,15 +2,17 @@ import React from "react";
 import "./BudgetContainer.css"
 import { useState } from "react";
 
-const BudgetContainer = ({budget, month, year, addBudget, editBudget}) => {
+const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpenseTotal}) => {
   //return(render) budget, budgetForm components?
   let budgetMessage = null;
   let firstBudget = true;
+  let expenseTotal = 0;
   if (budget === 0) {
     budgetMessage = "No budge has been set for this month!"
   }else {
     budgetMessage = "Current budget is: "
     firstBudget = false;
+    expenseTotal = getExpenseTotal();
   }
 
   const defaultBudget = {
@@ -60,6 +62,7 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget}) => {
                     -> ability to set their own budget */}
     <h3>{budgetMessage}</h3>
     <div id="amount">{budget}</div>
+    <div>{expenseTotal}</div>
     <form onSubmit={handleSubmit}>
       <input
         type="number"

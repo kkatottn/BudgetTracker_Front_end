@@ -155,7 +155,14 @@ function App() {
     })
   };
 
-  
+  const getMonthExpenseTotal = () => {
+    let total = 0
+    for (let expense of expenses) {
+      total += parseInt(expense.amount);
+    }
+    return total;
+  }
+
   const editExpense = (expense_id, request_body) => {
     axios.patch(`${URL}/expense/${expense_id}`, request_body)
     .then(() => {
@@ -239,6 +246,7 @@ function App() {
         editBudget={editBudget}
         addBudget={addBudget}
         budget={budget}
+        getExpenseTotal={getMonthExpenseTotal}
         addUserCategory={addUserCategory}
         />    
       </div>
