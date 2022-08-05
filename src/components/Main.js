@@ -39,7 +39,7 @@ const Main = (props) => {
           </div>
       </div>
     </main>
-    <footer>This is footer</footer>
+    <footer></footer>
   </div>;
 };
 

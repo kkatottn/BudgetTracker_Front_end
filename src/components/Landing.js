@@ -25,7 +25,7 @@ const Landing = () => {
           <News/>
         </div>
       </main>
-      <footer>This is footer</footer>
+      <footer></footer>
     </div>
   );
 };
