@@ -19,15 +19,31 @@ const Chart = (props) => {
 
   const currentChart = props.selectChart;
   const labels = props.defaultCategories.map((defCat) => {return defCat.title});
-  console.log("this is categories",labels);
+  const categoryIds = props.defaultCategories.map((defCat) => {return defCat.category_id});
 
-  const allExpenses = props.expenses;
-  console.log("this is all expenses of this user at this month",allExpenses);
+  const getTotalAmount = (category_id) => {
+    let total = 0;
+
+    for (const expense of props.expenses){
+      if (expense.category_id === category_id){
+        let amount = parseFloat(expense.amount);
+        total += amount;
+      }
+    }
+    
+    total = parseFloat(total.toFixed(2));
+    return total;
+  }
+
+  const dataForChart = Array.apply(0, Array(labels.length));
+  categoryIds.map((catID,idx) => {
+    return dataForChart[idx] = getTotalAmount(catID);
+  })
+  
 
   const monthNum = props.date.month;
   const monthDic = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   const selectedMonth = monthDic[monthNum-1];
-
 
   const options = {
     responsive: true,
@@ -48,7 +64,7 @@ const Chart = (props) => {
     datasets: [
       {
         label: `Expenses for ${selectedMonth}`,
-        data: [12, 19, 3, 5, 2, 3],
+        data: dataForChart,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',

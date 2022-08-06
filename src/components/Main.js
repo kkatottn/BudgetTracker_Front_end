@@ -42,7 +42,7 @@ const Main = (props) => {
           <ChartContainer
             defaultCategories={props.defaultCategories}
             date={props.date}
-            expenses={props.expense}/>
+            expenses={props.expenses}/>
           </div>
       </div>
     </main>
