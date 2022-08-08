@@ -1,5 +1,5 @@
 #main {
-    background-color: #efffff;
+    background-color: #1E292C;
     /* height: 90vh; */
 }
 
@@ -7,7 +7,7 @@
     /* position: fixed; */
     width: 100%;
     height : 80px;
-    background-color: #90c1c5;
+    background-color: #1E292C;
     padding-left: 25px;
     display:flex;
     justify-content: middle;
@@ -25,6 +25,7 @@
 #kashnote{
     margin-left: 15px;
     font-size: 50px;
+    color:#FFFFFF;
 }
 #main main {
     height: calc(100vh - 160px);

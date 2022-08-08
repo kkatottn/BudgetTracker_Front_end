@@ -4,6 +4,7 @@ import Main from "./components/Main";
 import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
+import Greeting from "./components/Greeting";
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
       callback: handleCallbackResponse,
     });
 
-    google.accounts.id.renderButton(document.getElementById("gmailSignIn"), {
+    google.accounts.id.renderButton(document.getElementById("signIn"), {
       theme: "outline", // filled_blue, filled_black
       size: "large",
       width: "330px", // maximum width : 400px

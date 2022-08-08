@@ -1,6 +1,5 @@
-#landing {
-    background-color: #efffff;
-    /* height: 90vh; */
+body {
+    background-color: #1E292C;
 }
 
 
@@ -8,7 +7,7 @@
     /* position: fixed; */
     width: 100%;
     height : 80px;
-    background-color: #90c1c5;
+    /* background-color: #90c1c5; */
     padding-left: 25px;
     display:flex;
     justify-content: middle;
@@ -26,11 +25,13 @@
 #kashnote{
     margin-left: 15px;
     font-size: 50px;
+    color:#FFFFFF;
+
 }
 
 #landing main { 
     height: calc(100vh - 160px);
-    background-color: #efffff;
+    /* background-color: #efffff; */
     display: grid;
     grid-template-columns: 38% 55%;
     grid-template-rows: 90%;
@@ -41,13 +42,16 @@
 .login-container{
     /* border: green solid 3px; */
     position: relative;
+    margin-top: 80px;
+
+
 }
 
 .quote {
     margin-top: 8%;
     margin-left: 5%;
     font-size: 35px;
-    color:#38626e;
+    color:#FDCEAA;
     font-weight: bolder;
 
 }
@@ -55,44 +59,31 @@
 .person {
     font-size: 20px;
     margin-left: 60%;
-    color:#1a3931;
+    color:#FDCEAA;
     font-weight: bold;
 }
 
 #signIn{
-    width : 85%;
-    height: 30%;
-    text-align: center;
-    padding-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    border: #38626e solid 3px;
+    /* width : 90%; */
+    width: fit-content;
+    height: fit-content;
+    border: #FDCEAA solid 7px;
     position: absolute;
-    top: 65%; left: 50%;
+    background-color: #FDCEAA;
+    top: 68%; left: 50%;
     transform: translate(-50%,-50%);
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 40% 60%;
-    
-}
-
-.login-text{
-    font-size: 20px;
-    font-weight: bold;
-
-}
-
-#gmailSignIn{
-    display: flex;
+    display: inline-block;
+    white-space: nowrap;
     justify-content: center;
 }
 
+
 .news-container{
-    border: #38626e solid 3px;
+    border: white solid 3px;
 }
 
 #landing footer {
-    background-color: #90c1c5;
+    /* background-color: #90c1c5; */
     position: absolute;
     bottom : 0px;
     width: 100%;

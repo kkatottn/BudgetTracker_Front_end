@@ -16,7 +16,6 @@ const Landing = () => {
           <br/>A small leak will sink a great ship.</p>
           <p className="person">— Benjamin Franklin</p>
           <div id="signIn">
-            <p className="login-text">Start saving with KashNote</p>
             <div id="gmailSignIn"></div>
           </div>
           
