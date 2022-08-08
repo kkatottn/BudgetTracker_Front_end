@@ -159,7 +159,7 @@ function App() {
   const getMonthExpenseTotal = () => {
     let total = 0
     for (let expense of expenses) {
-      total += parseInt(expense.amount);
+      total += parseFloat(expense.amount);
     }
     return total;
   }
