@@ -19,7 +19,7 @@ const Landing = () => {
 
 // useEffect(() => {
 //   finnhubClient.marketNews("forex").then((resp) => {
-//     console.log(resp.data.slice(0,5));
+//     console.log(resp.data.slice(0,4));
 //   });
 // }, []);
 
