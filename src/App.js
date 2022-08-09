@@ -17,9 +17,10 @@ function App() {
   const [news,setNews] = useState(null);
 
 
+  const FINNHUB_API_KEY = process.env.REACT_APP_FINNHUB_API_KEY;
   const finnhubClient = new DefaultApi({
       // apiKey: 'cboo8taad3i94d2leidg',
-      apiKey: process.env.REACT_APP_FINNHUB_API_KEY,
+      apiKey: FINNHUB_API_KEY,
       isJsonMime: (input) => {
         try {
           JSON.parse(input)
