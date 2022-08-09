@@ -4,7 +4,7 @@ import Main from "./components/Main";
 import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
-import Greeting from "./components/Greeting";
+import { DefaultApi } from 'finnhub-ts'
 
 
 function App() {
@@ -14,6 +14,21 @@ function App() {
   const [userCategories, setUserCategories] = useState([]);
   const [budget, setBudget] = useState(0);
   const [expenses, setExpenses] = useState([]);
+  const [news,setNews] = useState(null);
+
+
+  const finnhubClient = new DefaultApi({
+      // apiKey: 'cboo8taad3i94d2leidg',
+      apiKey: process.env.REACT_APP_FINNHUB_API_KEY,
+      isJsonMime: (input) => {
+        try {
+          JSON.parse(input)
+          return true
+        } catch (error) {}
+          return false
+      },
+  });
+
 
   const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
@@ -35,7 +50,11 @@ function App() {
       theme: "outline", // filled_blue, filled_black
       size: "large",
       width: "330px", // maximum width : 400px
-      // shape: "circle", // rectangular
+    });
+
+    finnhubClient.marketNews("forex").then((resp) => {
+      setNews(resp.data.slice(0,4));
+      console.log("inside of api call");
     });
 
     getDate();
@@ -230,7 +249,7 @@ function App() {
   if (user === null) {
     return (
       <div>
-        <Landing />
+        <Landing news={news}/>
       </div>
     );
   } else {
