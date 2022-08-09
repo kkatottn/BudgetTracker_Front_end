@@ -17,18 +17,17 @@ function App() {
   const [news,setNews] = useState(null);
 
 
-  const FINNHUB_API_KEY = process.env.REACT_APP_FINNHUB_API_KEY;
-  const finnhubClient = new DefaultApi({
-      // apiKey: 'cboo8taad3i94d2leidg',
-      apiKey: FINNHUB_API_KEY,
-      isJsonMime: (input) => {
-        try {
-          JSON.parse(input)
-          return true
-        } catch (error) {}
-          return false
-      },
-  });
+  // const FINNHUB_API_KEY = process.env.REACT_APP_FINNHUB_API_KEY;
+  // const finnhubClient = new DefaultApi({
+  //     apiKey: FINNHUB_API_KEY,
+  //     isJsonMime: (input) => {
+  //       try {
+  //         JSON.parse(input)
+  //         return true
+  //       } catch (error) {}
+  //         return false
+  //     },
+  // });
 
 
   const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
@@ -53,10 +52,9 @@ function App() {
       width: "330px", // maximum width : 400px
     });
 
-    finnhubClient.marketNews("forex").then((resp) => {
-      setNews(resp.data.slice(0,4));
-      console.log("inside of api call");
-    });
+    // finnhubClient.marketNews("forex").then((resp) => {
+    //   setNews(resp.data.slice(0,4));
+    // });
 
     getDate();
     getDefaultCategories();    
