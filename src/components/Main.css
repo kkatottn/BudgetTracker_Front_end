@@ -6,12 +6,16 @@
 #header{
     /* position: fixed; */
     width: 100%;
-    height : 80px;
+    height : 50px;
     background-color: #1E292C;
     padding-left: 25px;
     display:flex;
-    justify-content: middle;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    position: relative;
 }
+
 
 #logo {
     /* width: 60px;
@@ -23,13 +27,17 @@
 }
 
 #kashnote{
-    margin-left: 15px;
-    font-size: 50px;
+    margin-left: 5px;
+    font-size: 35px;
     color:#FFFFFF;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 #main main {
-    height: calc(100vh - 160px);
-    background-color: #efffff;
+    height: calc(100vh - 80px);
+    background-color: #27363B;
     display: grid;
     grid-template-columns: 58% 38%;
     grid-template-rows: 98%;
@@ -61,10 +69,21 @@
     border: black solid 2px;
 } */
 
-#main footer {
+/* #main footer {
     background-color: #90c1c5;
     position: absolute;
     bottom : 0px;
     width: 100%;
     height: 80px;
+} */
+
+#greeting {
+    /* border: black solid 2px; */
+    float: right;
+    /* display:grid;
+    grid-template-columns: 90%;
+    grid-template-rows: 50% 50%;
+    justify-content: space-around;
+    align-content: center;
+    row-gap: 3px; */
 }

@@ -3,23 +3,11 @@
     /* border: red solid 3px; */
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 10% 90%;
+    grid-template-rows: 100%;
     /* justify-content: space-around; */
     align-content: center;
-    /* row-gap: 2px; */
-}
-
-#greeting {
-    /* border: black solid 2px; */
-    display: table;
-    width: 100%;
-    height: 100%;
-    /* display:grid;
-    grid-template-columns: 90%;
-    grid-template-rows: 50% 50%;
-    justify-content: space-around;
-    align-content: center;
-    row-gap: 3px; */
+    row-gap: 2px;
+    margin: 15px;
 }
 
 /* #entry {

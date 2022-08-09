@@ -1,11 +1,11 @@
 .navbar {
-    background-color: #3d8180;   
+    background-color: rgba(255, 255, 255, 0.06);   
     height: auto !important;
 }
 
 .month {
     color: white;
-    font-weight: bold;
+    font-weight: normal;
     font-size: large;
     padding-top: 0;
     padding-bottom: 0;
@@ -13,7 +13,8 @@
 }
 
 .selectedMonth {
-    background-color: #1a3931;
+    text-decoration: underline;
+    font-weight: bold;
 }
 
 a.month.nav-link:focus{

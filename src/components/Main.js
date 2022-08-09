@@ -3,14 +3,21 @@ import "./Main.css";
 import Profile from "./Profile.js";
 import BudgetContainer from "./BudgetContainer.js";
 import ChartContainer from "./ChartContainer.js";
-import logo from "../images/KashnoteLogo.png";
+// import logo from "../images/KashnoteLogo.png";
+import logo from "../images/Nowhite.png"
+import Greeting from "./Greeting";
 
 const Main = (props) => {
   return <div id="main">
     <div id="header">
-        <img id="logo" src={logo} alt="Kash Note Logo"/>
-        <span id="kashnote">Kash Note</span>
+        <div>
+          <img id="logo" src={logo} alt="Kash Note Logo"/>
+          <span id="kashnote">Kash Note</span>
         </div>
+        <div id="greeting"> 
+          <Greeting user={props.user}/>
+        </div>
+    </div>
     <main>
       {/* This is main page */}
       <div id="profile-container">
@@ -46,7 +53,7 @@ const Main = (props) => {
           </div>
       </div>
     </main>
-    <footer></footer>
+    {/* <footer></footer> */}
   </div>;
 };
 

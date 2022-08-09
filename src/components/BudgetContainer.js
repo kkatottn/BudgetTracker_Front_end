@@ -7,12 +7,16 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpense
   let budgetMessage = null;
   let firstBudget = true;
   let expenseTotal = 0;
+  let buttonValue = "Add Budget"
+  let budgetState = ""
+  let budgetColor = ""
   if (budget === 0) {
-    budgetMessage = "No budge has been set for this month!"
+    budgetMessage = "No budget has been set for this month!"
   }else {
-    budgetMessage = "Current budget is: "
+    budgetMessage = `Current budget: $${budget}`
     firstBudget = false;
     expenseTotal = getExpenseTotal();
+    buttonValue = "Edit Budget"
   }
 
   const defaultBudget = {
@@ -44,7 +48,7 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpense
   const handleSubmit = (event) => {
     event.preventDefault();
     if (firstBudget === true){
-      console.log("I'm adding new budget")
+      console.log("I'm adding a new budget")
       addBudget(currentBudget);
     }else {
       console.log("I'm editing the budget")
@@ -54,6 +58,17 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpense
     
   };
 
+  if (budget - expenseTotal >= 100) {
+    budgetState = "You're doing great! You have spent: "
+    budgetColor = "good"
+  }else if (budget - expenseTotal < 0) {
+    budgetState = "You have gone over your budget!"
+    budgetColor = "bad"
+  }else {
+    budgetState = "You are getting close to your budget goal."
+    budgetColor = "close"
+  }
+
   return(
   <div id="budget">
     {/* This is container for {props.user.name}'s budget and set budget form
@@ -61,8 +76,12 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpense
     Have 2 features -> show set user's budget, 
                     -> ability to set their own budget */}
     <h3>{budgetMessage}</h3>
-    <div id="amount">{budget}</div>
-    <div>{expenseTotal}</div>
+    <div className="expenseSum" id={budgetColor}>
+      <div id="budgetstate">
+        {budgetState}
+      </div>
+      <div className="expensetotal">${expenseTotal}</div>
+    </div>
     <form onSubmit={handleSubmit}>
       <input
         type="number"
@@ -73,7 +92,7 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpense
       ></input>
       <input
         type="submit"
-        value="Add Budget"
+        value={buttonValue}
         disabled={disableSubmit}
         className="submit"
       ></input>
