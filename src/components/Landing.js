@@ -1,15 +1,17 @@
 import React from "react";
 import "./Landing.css";
 import News from './News.js'
-import logo from "../images/KashnoteLogo.png";
+import logo from "../images/Nowhite.png";
 
 const Landing = () => {
   return (
     <div id="landing">
       <div id="header">
-        <img id="logo" src={logo} alt="Kash Note Logo"/>
-        <span id="kashnote">Kash Note</span>
+        <div>
+          <img id="logo" src={logo} alt="Kash Note Logo"/>
+          <span id="kashnote">Kash Note</span>
         </div>
+      </div>
       <main>
         <div className="login-container">
           <p className="quote">Beware of little expenses. 
