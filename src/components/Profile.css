@@ -7,7 +7,9 @@
     /* justify-content: space-around; */
     align-content: center;
     row-gap: 2px;
-    margin: 15px;
+    /* margin: 15px; */
+    background-color: #27363B;
+    
 }
 
 /* #entry {

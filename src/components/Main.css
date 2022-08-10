@@ -37,7 +37,7 @@
 }
 #main main {
     height: calc(100vh - 80px);
-    background-color: #27363B;
+    /* background-color: #27363B; */
     display: grid;
     grid-template-columns: 58% 38%;
     grid-template-rows: 98%;
@@ -61,9 +61,9 @@
     row-gap: 3px;
 }
 
-#budget-container {
+/* #budget-container {
     border: pink solid 2px;
-}
+} */
 
 /* #chart-container { 
     border: black solid 2px;

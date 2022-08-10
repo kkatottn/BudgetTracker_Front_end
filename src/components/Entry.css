@@ -12,11 +12,11 @@
 #navigation {
     /* border: red solid 2px; */
     height: fit-content;
-    border-top: #3d8180 solid 3px;
+    /* border-top: #3d8180 solid 3px; */
 }
 
 #expense-container {
-    border: #3d8180 solid 3px;
+    /* border: #3d8180 solid 3px; */
     
 }
 

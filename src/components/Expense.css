@@ -1,5 +1,7 @@
 #expense {
-    border: #3d8180 solid 2px;
+    /* border: #3d8180 solid 2px; */
+    background-color: rgba(255, 255, 255, 0.06);
+    color: white;
     width: 30%;
     height: 98%;
     display: grid;
@@ -24,7 +26,8 @@
     display: table-cell;
     vertical-align: middle;
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: bold;
 
 }
 
@@ -34,6 +37,16 @@
     width: fit-content;
     height: fit-content;
     /* text-align:center; */
+    background-color: #99B898;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    transition: background-color .17s ease,color .17s ease;
+
 
 }
 

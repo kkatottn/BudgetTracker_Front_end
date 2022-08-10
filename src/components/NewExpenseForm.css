@@ -1,9 +1,9 @@
 .popup-box {
     position: fixed;
-    border: green solid 3px;
-    background: #38626e;
+    /* border: green solid 3px; */
+    background: #27363B;
     width: 50%;
-    height: 40%;
+    height: 45%;
     top: 25%;
     left: 20%;
     z-index: 999;
@@ -16,7 +16,7 @@
     height: fit-content;
     max-height: 50vh;
     margin-top: 5vh;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.06);
     border-radius: 4px;
     padding: 5%;
     border: 1px solid #999;
@@ -41,7 +41,7 @@
 
 #selectedCategory{
     font-weight: bold;
-    color: #1a3931;
+    color: #99B898;
 }
 
 #input {
@@ -62,5 +62,17 @@ input {
 #amount-input{
     display: grid;
     grid-template-columns: 13% 50% 10%;
+
+}
+
+#amount-input button {
+    background-color: #99B898;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    transition: background-color .17s ease,color .17s ease;
 
 }

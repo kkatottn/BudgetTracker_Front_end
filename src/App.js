@@ -4,7 +4,7 @@ import Main from "./components/Main";
 import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
-import { DefaultApi } from 'finnhub-ts'
+// import { DefaultApi } from 'finnhub-ts';
 
 
 function App() {
