@@ -4,6 +4,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { CategoryScale, LinearScale, BarElement, Title} from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import { isLabelWithInternallyDisabledControl } from "@testing-library/user-event/dist/utils";
 
 ChartJS.register(
   ArcElement,
@@ -67,6 +68,23 @@ const Chart = (props) => {
     },
   };
 
+  const optionsForDoughnut = {
+    responsive: true,
+    plugins: {
+      legend:{
+        labels: {
+            color: 'white'
+        }}
+      },
+      datalabels: {
+        display: true,
+        font: {
+          color: "white"
+        }
+      }
+  }
+
+
   const data = {
     labels: labels,
     datasets: [
@@ -98,7 +116,7 @@ const Chart = (props) => {
     return(
       <div id="chart">
         <h5 id="label">Expenses for {selectedMonth}</h5>
-        <Doughnut data={data} />
+        <Doughnut options={optionsForDoughnut} data={data} />
       </div>);
   }
   else{
