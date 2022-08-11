@@ -4,7 +4,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { CategoryScale, LinearScale, BarElement, Title} from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { isLabelWithInternallyDisabledControl } from "@testing-library/user-event/dist/utils";
+
 
 ChartJS.register(
   ArcElement,
@@ -24,14 +24,12 @@ const Chart = (props) => {
 
   const getTotalAmount = (category_id) => {
     let total = 0;
-
     for (const expense of props.expenses){
       if (expense.category_id === category_id){
         let amount = parseFloat(expense.amount);
         total += amount;
       }
     }
-    
     total = parseFloat(total.toFixed(2));
     return total;
   }
@@ -41,12 +39,11 @@ const Chart = (props) => {
     return dataForChart[idx] = getTotalAmount(catID);
   })
   
-
   const monthNum = props.date.month;
   const monthDic = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   const selectedMonth = monthDic[monthNum-1];
 
-  const options = {
+  const optionsForBar = {
     responsive: true,
     scales: {
       y: {
@@ -83,7 +80,6 @@ const Chart = (props) => {
         }
       }
   }
-
 
   const data = {
     labels: labels,
@@ -123,7 +119,7 @@ const Chart = (props) => {
     return(
       <div id="chart">
         <h5 id="label">Expenses for {selectedMonth}</h5>
-        <Bar options={options} data={data} />
+        <Bar options={optionsForBar} data={data} />
       </div>);
   }
 }

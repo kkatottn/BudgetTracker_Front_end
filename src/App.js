@@ -4,8 +4,7 @@ import Main from "./components/Main";
 import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
-// import { DefaultApi } from 'finnhub-ts';
-
+import { DefaultApi } from 'finnhub-ts';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -16,19 +15,17 @@ function App() {
   const [expenses, setExpenses] = useState([]);
   const [news,setNews] = useState(null);
 
-
-  // const FINNHUB_API_KEY = process.env.REACT_APP_FINNHUB_API_KEY;
-  // const finnhubClient = new DefaultApi({
-  //     apiKey: FINNHUB_API_KEY,
-  //     isJsonMime: (input) => {
-  //       try {
-  //         JSON.parse(input)
-  //         return true
-  //       } catch (error) {}
-  //         return false
-  //     },
-  // });
-
+  const FINNHUB_API_KEY = process.env.REACT_APP_FINNHUB_API_KEY;
+  const finnhubClient = new DefaultApi({
+      apiKey: FINNHUB_API_KEY,
+      isJsonMime: (input) => {
+        try {
+          JSON.parse(input)
+          return true
+        } catch (error) {}
+          return false
+      },
+  });
 
   const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
@@ -47,14 +44,14 @@ function App() {
     });
 
     google.accounts.id.renderButton(document.getElementById("signIn"), {
-      theme: "outline", // filled_blue, filled_black
+      theme: "outline", 
       size: "large",
-      width: "330px", // maximum width : 400px
+      width: "330px",
     });
 
-    // finnhubClient.marketNews("forex").then((resp) => {
-    //   setNews(resp.data.slice(0,4));
-    // });
+    finnhubClient.marketNews("forex").then((resp) => {
+      setNews(resp.data.slice(0,4));
+    });
 
     getDate();
     getDefaultCategories();    
@@ -80,7 +77,6 @@ function App() {
   const handleUser = (userObject) => {
     axios.get(`${URL}/user/${userObject.email}`)
     .then((res)=>{
-      console.log("exist user!");
       setUser(res.data);
       return res.data;
     })
@@ -88,7 +84,6 @@ function App() {
       console.log(err.response);
       axios.post(`${URL}/user`, userObject)
       .then((res) => {
-        console.log("we are creating new user!");
         const newUser = {"user_id": res.data.user_id,"email": userObject.email, "name": userObject.name};
         setUser(newUser);
         return newUser;
@@ -139,7 +134,6 @@ function App() {
       }else {
       setBudget(res.data.amount);
       }
-      console.log(budget);
     })
     .catch(() => {
       console.log("something wrong with get user budget!");
@@ -174,6 +168,7 @@ function App() {
     })
   };
 
+
   const getMonthExpenseTotal = () => {
     let total = 0
     for (let expense of expenses) {
@@ -182,22 +177,23 @@ function App() {
     return total.toFixed(2);
   }
 
-  const editExpense = (expense_id, request_body) => {
-    axios.patch(`${URL}/expense/${expense_id}`, request_body)
-    .then(() => {
-      const modifiedExpenses = expenses.map((expense) => {
-        if (expense.expense_id === expense_id){
-          expense.description = request_body.description
-          expense.amount = request_body.amount
-        }
-        return expense;
-      });
-      setExpenses(modifiedExpenses);
-    })
-    .catch(() => {
-      console.log("something wrong with edit expense!");
-    })
-  };
+// Will use this function later when we add more feature after capstone for personal project
+  // const editExpense = (expense_id, request_body) => {
+  //   axios.patch(`${URL}/expense/${expense_id}`, request_body)
+  //   .then(() => {
+  //     const modifiedExpenses = expenses.map((expense) => {
+  //       if (expense.expense_id === expense_id){
+  //         expense.description = request_body.description
+  //         expense.amount = request_body.amount
+  //       }
+  //       return expense;
+  //     });
+  //     setExpenses(modifiedExpenses);
+  //   })
+  //   .catch(() => {
+  //     console.log("something wrong with edit expense!");
+  //   })
+  // };
 
 
   const addBudget = (request_body) => {
@@ -217,16 +213,17 @@ function App() {
     axios.patch(`${URL}/${user.user_id}/budget`, request_body)
     .then(()=> {
       setBudget(request_body["amount"])
-      console.log(request_body["amount"])
     })
     .catch(() => {
       console.log("Something went wrong editing the budget!")
     })
   };
 
+
   const changeMonth = (newMonth) => {
     setDate({...date, "month": newMonth});
   };
+
 
   const addUserCategory = (request_body) => {
     axios.post(`${URL}/${user.user_id}/category`, request_body)
@@ -244,7 +241,7 @@ function App() {
     })
   }
 
-  //Handling render different page depend on user status
+
   if (user === null) {
     return (
       <div>

@@ -23,7 +23,6 @@ const ExpenseSpreadSheet = (props) => {
 
   return(
     <div id="gridsheet">
-      {/* Bootstrap spreadsheet/table making */}
       <Grid isScrollable
       columns={[
         {

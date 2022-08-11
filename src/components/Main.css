@@ -1,10 +1,8 @@
 #main {
     background-color: #1E292C;
-    /* height: 90vh; */
 }
 
 #header{
-    /* position: fixed; */
     width: 100%;
     height : 50px;
     background-color: #1E292C;
@@ -18,8 +16,6 @@
 
 
 #logo {
-    /* width: 60px;
-    height: 60px; */
     max-height: 65px;
     max-width: 65px;
     margin-top: auto;
@@ -37,22 +33,15 @@
 }
 #main main {
     height: calc(100vh - 80px);
-    /* background-color: #27363B; */
     display: grid;
     grid-template-columns: 58% 38%;
     grid-template-rows: 98%;
     padding-bottom: 7px;
     justify-content: space-around;
     align-content: center;
-    /* column-gap: 10px; */
-
 }
-/* #main #profile-container {
-    border: green solid 3px;
-} */
 
 #main #extra-feature {
-    /* border: green solid 3px; */
     display:grid;
     grid-template-columns: 100%;
     grid-template-rows: 40% 60%;
@@ -61,29 +50,6 @@
     row-gap: 3px;
 }
 
-/* #budget-container {
-    border: pink solid 2px;
-} */
-
-/* #chart-container { 
-    border: black solid 2px;
-} */
-
-/* #main footer {
-    background-color: #90c1c5;
-    position: absolute;
-    bottom : 0px;
-    width: 100%;
-    height: 80px;
-} */
-
 #greeting {
-    /* border: black solid 2px; */
     float: right;
-    /* display:grid;
-    grid-template-columns: 90%;
-    grid-template-rows: 50% 50%;
-    justify-content: space-around;
-    align-content: center;
-    row-gap: 3px; */
 }

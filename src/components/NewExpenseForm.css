@@ -1,6 +1,5 @@
 .popup-box {
     position: fixed;
-    /* border: green solid 3px; */
     background: #27363B;
     width: 50%;
     height: 45%;
@@ -53,7 +52,6 @@ input {
 }
 
 #des-input{
-    /* border: red solid 2px; */
     padding-top: 2%;
     display: grid;
     grid-template-columns: 13% 80%;
@@ -62,7 +60,6 @@ input {
 #amount-input{
     display: grid;
     grid-template-columns: 13% 50% 10%;
-
 }
 
 #amount-input button {
@@ -74,5 +71,4 @@ input {
     border: none;
     color: #fff;
     transition: background-color .17s ease,color .17s ease;
-
 }

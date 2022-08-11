@@ -2,9 +2,7 @@ body {
     background-color: #1E292C;
 }
 
-
 #header{
-    /* position: fixed; */
     width: 100%;
     height : 50px;
     background-color: #1E292C;
@@ -17,8 +15,6 @@ body {
 }
 
 #logo {
-    /* width: 60px;
-    height: 60px; */
     max-height: 65px;
     max-width: 65px;
     margin-top: auto;
@@ -28,12 +24,10 @@ body {
 #kashnote{
     font-size: 50px;
     color:#FFFFFF;
-
 }
 
 #landing main { 
     height: calc(100vh - 160px);
-    /* background-color: #efffff; */
     display: grid;
     grid-template-columns: 95%;
     grid-template-rows: 70% 30%;
@@ -41,14 +35,13 @@ body {
     align-content: center;
     row-gap: 100px;
 }
+
 .login-container{
     width: 33%;
     height: fit-content;
-    /* border: white solid 3px; */
     position: relative;
     margin: auto;
     margin-top: 12%;
-
 }
 
 .quote {
@@ -64,15 +57,12 @@ body {
 
 .person {
     text-align:end;
-    /* right: 0%; */
     font-size: 20px;
-    /* margin-left: 60%; */
     color:#FDCEAA;
     font-weight: bold;
 }
 
 #signIn{
-    /* width : 90%; */
     margin-top: 7%;
     width: fit-content;
     height: fit-content;
@@ -86,9 +76,7 @@ body {
     justify-content: center;
 }
 
-
 .news-container{
-    /* border: #FDCEAA solid 1px; */
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -102,10 +90,7 @@ body {
     height:100%;
 }
 
-
-
 #landing footer {
-    /* background-color: #90c1c5; */
     position: absolute;
     bottom : 0px;
     width: 100%;

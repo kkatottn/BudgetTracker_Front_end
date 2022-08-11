@@ -2,7 +2,6 @@ import React from "react";
 import "./Entry.css"
 import Navigation from "./Navigation.js";
 import ExpenseContainer from "./ExpenseContainer.js";
-// import NewCategoryForm from "./NewCategoryForm.js"
 
 const Entry = (props) => {
   return(
@@ -19,11 +18,6 @@ const Entry = (props) => {
       expenses={props.expenses}
       />
     </div>
-    {/* <div id="category-form">
-      <NewCategoryForm
-        addUserCategory={props.addUserCategory}
-        date={props.date}/>
-    </div> */}
   </div>);
 }
 

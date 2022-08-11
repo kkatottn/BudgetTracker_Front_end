@@ -6,11 +6,7 @@ import NewExpenseForm from "./NewExpenseForm.js";
 
 const Expense = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-  // const [currentCateID, setCurrentCateID] = useState(null);
   const togglePopup = () => {
-    console.log("toggled!!!");
-    console.log(`this is current category's ID!: ${props.category.category_id}`);
-    console.log(`this is current category: ${props.category.title}`)
     setIsOpen(!isOpen);
   };
 

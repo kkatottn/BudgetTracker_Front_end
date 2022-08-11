@@ -3,22 +3,12 @@
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto 93%;
-    /* grid-template-rows: auto 84% 10%; */
-    /* justify-content: space-around; */
     align-content: center;
-    /* row-gap: 5px; */
 }
 
 #navigation {
-    /* border: red solid 2px; */
     height: fit-content;
-    /* border-top: #3d8180 solid 3px; */
 }
-
-/* #expense-container {
-    border: #3d8180 solid 3px;
-    
-} */
 
 #category-form {
     border-bottom: #3d8180 solid 3px;

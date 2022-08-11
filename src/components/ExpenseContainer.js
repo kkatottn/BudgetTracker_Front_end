@@ -3,10 +3,8 @@ import "./ExpenseContainer.css"
 import Expense from "./Expense.js";
 
 const ExpenseContainer = (props) => {
-  //do something with props.userCategories
-  //add utility to test carosel
+
   const allCategories = [...props.defaultCategories, ...props.userCategories];
-  // console.log(allCategories);
   const expenseComponents = allCategories.map((category) => {
     return <Expense 
               category={category} 

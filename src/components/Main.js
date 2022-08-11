@@ -3,7 +3,6 @@ import "./Main.css";
 import Profile from "./Profile.js";
 import BudgetContainer from "./BudgetContainer.js";
 import ChartContainer from "./ChartContainer.js";
-// import logo from "../images/KashnoteLogo.png";
 import logo from "../images/Nowhite.png"
 import Greeting from "./Greeting";
 
@@ -19,7 +18,6 @@ const Main = (props) => {
         </div>
     </div>
     <main>
-      {/* This is main page */}
       <div id="profile-container">
         <Profile 
         user={props.user}
@@ -53,7 +51,6 @@ const Main = (props) => {
           </div>
       </div>
     </main>
-    {/* <footer></footer> */}
   </div>;
 };
 

@@ -19,8 +19,6 @@ const NewExpenseForm = (props) => {
     const inputElement = event.target;
     const name = inputElement.name;
     const value = inputElement.value;
-
-    // make a new object based on form object
     const newForm = { ...formData };
     newForm[name] = value;
 

@@ -3,17 +3,19 @@ import "./BudgetContainer.css"
 import { useState } from "react";
 
 const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpenseTotal}) => {
-  //return(render) budget, budgetForm components?
+
   let budgetMessage = null;
   let firstBudget = true;
   let expenseTotal = 0;
   let buttonValue = "Add Budget"
   let budgetState = ""
   let budgetColor = ""
+
   if (budget === 0) {
     budgetMessage = "No budget has been set for this month!"
     expenseTotal = getExpenseTotal();
-  }else {
+  }
+  else {
     budgetMessage = `Current budget: $${budget}`
     firstBudget = false;
     expenseTotal = getExpenseTotal();
@@ -26,11 +28,9 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpense
     year: 0
   };
 
-  
   let [currentBudget, setCurrentBudget] = useState(defaultBudget)
   let [disableSubmit, setDisableSubmit] = useState(true);
 
-  
   const onFormChange = (event) => {
     const stateName = event.target.name;
     const inputValue = event.target.value;
@@ -41,7 +41,8 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpense
     setCurrentBudget(newFormData);
     if (currentBudget.amount === "" || currentBudget.amount === null || currentBudget.amount === 0) {
       setDisableSubmit(true);
-    } else {
+    } 
+    else {
       setDisableSubmit(false);
     }
   }
@@ -49,14 +50,11 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpense
   const handleSubmit = (event) => {
     event.preventDefault();
     if (firstBudget === true){
-      console.log("I'm adding a new budget!")
       addBudget(currentBudget);
-    }else {
-      console.log("I'm editing the budget")
-      editBudget(currentBudget)
-      console.log(budget);
     }
-    
+    else {
+      editBudget(currentBudget)
+    }
   };
 
   if (budget - expenseTotal >= 100 && !firstBudget) {
@@ -72,10 +70,6 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpense
 
   return(
   <div id="budget">
-    {/* This is container for {props.user.name}'s budget and set budget form
-    No need seperate components
-    Have 2 features -> show set user's budget, 
-                    -> ability to set their own budget */}
     <h3>{budgetMessage}</h3>
     <div className="expenseSum" id={budgetColor}>
       <div id="budgetstate">
@@ -98,8 +92,6 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpense
         className="submit"
       ></input>
     </form>
-
-
   </div>);
 }
 

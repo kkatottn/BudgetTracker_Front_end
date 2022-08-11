@@ -1,17 +1,9 @@
 #profile {
     height: 100%;
-    /* border: red solid 3px; */
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 100%;
-    /* justify-content: space-around; */
     align-content: center;
     row-gap: 2px;
-    /* margin: 15px; */
     background-color: #27363B;
-    
 }
-
-/* #entry {
-    border: black solid 2px;
-} */
