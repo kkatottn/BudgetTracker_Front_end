@@ -12,6 +12,7 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpense
   let budgetColor = ""
   if (budget === 0) {
     budgetMessage = "No budget has been set for this month!"
+    expenseTotal = getExpenseTotal();
   }else {
     budgetMessage = `Current budget: $${budget}`
     firstBudget = false;
