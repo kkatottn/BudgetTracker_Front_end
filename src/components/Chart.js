@@ -47,6 +47,14 @@ const Chart = (props) => {
 
   const options = {
     responsive: true,
+    scales: {
+      y: {
+        ticks: { color: 'white', beginAtZero: true }
+      },
+      x: {
+        ticks: { color: 'white', beginAtZero: true }
+      }
+    },
     plugins: {
       legend: {
         display:false,
@@ -90,7 +98,7 @@ const Chart = (props) => {
     return(
       <div id="chart">
         <h5 id="label">Expenses for {selectedMonth}</h5>
-        <Doughnut  data={data} />
+        <Doughnut data={data} />
       </div>);
   }
   else{
