@@ -179,7 +179,7 @@ function App() {
     for (let expense of expenses) {
       total += parseFloat(expense.amount);
     }
-    return total;
+    return total.toFixed();
   }
 
   const editExpense = (expense_id, request_body) => {
