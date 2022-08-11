@@ -25,7 +25,7 @@ const ChartContainer = (props) => {
     
     <div>
       <button className={selectChart === "doughnut" ? "chartButton active" : "chartButton"} onClick={() => {handleChartChoice("doughnut")}}>Doughnut</button>
-      <button className="chartButton" onClick={() => {handleChartChoice("bar")}}>Bar</button>
+      <button className={selectChart === "bar" ? "chartButton active" : "chartButton"} onClick={() => {handleChartChoice("bar")}}>Bar</button>
     </div>
     
   </div>);

@@ -58,13 +58,13 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpense
     
   };
 
-  if (budget - expenseTotal >= 100) {
+  if (budget - expenseTotal >= 100 && !firstBudget) {
     budgetState = "You're doing great! You have spent: "
     budgetColor = "good"
-  }else if (budget - expenseTotal < 0) {
+  }else if (budget - expenseTotal < 0 &&!firstBudget) {
     budgetState = "You have gone over your budget!"
     budgetColor = "bad"
-  }else {
+  }else if(!firstBudget){
     budgetState = "You are getting close to your budget goal."
     budgetColor = "close"
   }
