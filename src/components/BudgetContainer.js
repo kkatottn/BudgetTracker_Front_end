@@ -49,7 +49,7 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpense
   const handleSubmit = (event) => {
     event.preventDefault();
     if (firstBudget === true){
-      console.log("I'm adding a new budget")
+      console.log("I'm adding a new budget!")
       addBudget(currentBudget);
     }else {
       console.log("I'm editing the budget")
