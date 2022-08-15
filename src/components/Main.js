@@ -3,8 +3,9 @@ import "./Main.css";
 import Profile from "./Profile.js";
 import BudgetContainer from "./BudgetContainer.js";
 import ChartContainer from "./ChartContainer.js";
-import logo from "../images/Nowhite.png"
+import logo from "../images/Nowhite.png";
 import Greeting from "./Greeting";
+import PropTypes from 'prop-types';
 
 const Main = (props) => {
   return <div id="main">
@@ -34,7 +35,6 @@ const Main = (props) => {
       <div id="extra-feature">
         <div id="budget-container">
           <BudgetContainer 
-            user={props.user}
             budget={props.budget} 
             month={props.date.month} 
             year={props.date.year} 
@@ -52,6 +52,22 @@ const Main = (props) => {
       </div>
     </main>
   </div>;
+};
+
+
+Main.propTypes = {
+  user: PropTypes.object.isRequired,
+  changeMonth: PropTypes.func.isRequired,
+  userCategories: PropTypes.array.isRequired,
+  addExpense: PropTypes.func.isRequired,
+  addUserCategory: PropTypes.func.isRequired,
+  budget: PropTypes.number.isRequired,
+  date: PropTypes.object.isRequired,
+  addBudget: PropTypes.func.isRequired,
+  editBudget: PropTypes.func.isRequired,
+  getExpenseTotal: PropTypes.func.isRequired,
+  defaultCategories: PropTypes.array.isRequired,
+  expenses: PropTypes.array.isRequired
 };
 
 export default Main;

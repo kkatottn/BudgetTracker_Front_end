@@ -4,6 +4,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { CategoryScale, LinearScale, BarElement, Title} from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import PropTypes from 'prop-types';
 
 
 ChartJS.register(
@@ -123,5 +124,12 @@ const Chart = (props) => {
       </div>);
   }
 }
+
+Chart.propTypes = {
+  selectChart: PropTypes.func.isRequired,
+  date: PropTypes.object.isRequired,
+  defaultCategories: PropTypes.array.isRequired,
+  expenses: PropTypes.array.isRequired
+};
 
 export default Chart;

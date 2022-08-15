@@ -2,6 +2,8 @@ import React from "react";
 import "./Entry.css"
 import Navigation from "./Navigation.js";
 import ExpenseContainer from "./ExpenseContainer.js";
+import PropTypes from 'prop-types';
+
 
 const Entry = (props) => {
   return(
@@ -20,5 +22,16 @@ const Entry = (props) => {
     </div>
   </div>);
 }
+
+
+Entry.propTypes = {
+  changeMonth: PropTypes.func.isRequired,
+  userCategories: PropTypes.array.isRequired,
+  addExpense: PropTypes.func.isRequired,
+  addUserCategory: PropTypes.func.isRequired,
+  date: PropTypes.object.isRequired,
+  defaultCategories: PropTypes.array.isRequired,
+  expenses: PropTypes.array.isRequired
+};
 
 export default Entry;

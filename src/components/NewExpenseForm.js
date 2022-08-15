@@ -75,6 +75,8 @@ const NewExpenseForm = (props) => {
 NewExpenseForm.propTypes = {
   addExpense: PropTypes.func.isRequired,
   handleClose: PropTypes.func.isRequired,
+  date: PropTypes.object.isRequired,
+  category: PropTypes.array.isRequired
 };
 
 export default NewExpenseForm;

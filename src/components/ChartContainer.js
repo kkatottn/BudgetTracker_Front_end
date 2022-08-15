@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./ChartContainer.css";
 import Chart from "./Chart.js";
+import PropTypes from 'prop-types';
 
 const ChartContainer = (props) => {
   const [selectChart, setSelectChart] = useState("doughnut");
@@ -26,5 +27,11 @@ const ChartContainer = (props) => {
     
   </div>);
 }
+
+ChartContainer.propTypes = {
+  date: PropTypes.object.isRequired,
+  defaultCategories: PropTypes.array.isRequired,
+  expenses: PropTypes.array.isRequired
+};
 
 export default ChartContainer;

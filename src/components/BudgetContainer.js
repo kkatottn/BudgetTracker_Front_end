@@ -1,6 +1,7 @@
 import React from "react";
-import "./BudgetContainer.css"
+import "./BudgetContainer.css";
 import { useState } from "react";
+import PropTypes from 'prop-types';
 
 const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpenseTotal}) => {
 
@@ -94,5 +95,15 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpense
     </form>
   </div>);
 }
+
+BudgetContainer.propTypes = {
+  budget: PropTypes.number.isRequired,
+  month: PropTypes.number.isRequired,
+  year: PropTypes.number.isRequired,
+  addBudget: PropTypes.func.isRequired,
+  editBudget: PropTypes.func.isRequired,
+  getExpenseTotal: PropTypes.func.isRequired,
+
+};
 
 export default BudgetContainer;

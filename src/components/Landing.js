@@ -1,6 +1,7 @@
 import React from "react";
 import "./Landing.css";
 import logo from "../images/Nowhite.png";
+import PropTypes from 'prop-types';
 
 const Landing = (props) => {
   
@@ -34,6 +35,10 @@ const Landing = (props) => {
       <footer></footer>
     </div>
   );
+};
+
+Landing.propTypes = {
+  news: PropTypes.array.isRequired
 };
 
 export default Landing;

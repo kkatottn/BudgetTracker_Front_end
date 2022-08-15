@@ -1,6 +1,8 @@
 import React from "react";
 import "./ExpenseContainer.css"
 import Expense from "./Expense.js";
+import PropTypes from 'prop-types';
+
 
 const ExpenseContainer = (props) => {
 
@@ -21,5 +23,13 @@ const ExpenseContainer = (props) => {
     </div>
   );
 }
+
+ExpenseContainer.propTypes = {
+  userCategories: PropTypes.array.isRequired,
+  addExpense: PropTypes.func.isRequired,
+  date: PropTypes.object.isRequired,
+  defaultCategories: PropTypes.array.isRequired,
+  expenses: PropTypes.array.isRequired
+};
 
 export default ExpenseContainer;

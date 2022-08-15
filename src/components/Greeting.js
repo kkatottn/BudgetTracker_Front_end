@@ -1,5 +1,6 @@
 import React from "react";
-import "./Greeting.css"
+import "./Greeting.css";
+import PropTypes from 'prop-types';
 
 const Greeting = (props) => {
   return(
@@ -8,4 +9,7 @@ const Greeting = (props) => {
     </div>)
 }
 
+Greeting.propTypes = {
+  user: PropTypes.object.isRequired
+}
 export default Greeting;

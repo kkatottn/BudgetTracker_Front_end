@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./Expense.css"
 import ExpenseSpreadSheet from "./ExpenseSpreadSheet.js";
 import NewExpenseForm from "./NewExpenseForm.js";
+import PropTypes from 'prop-types';
 
 const Expense = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,5 +36,13 @@ const Expense = (props) => {
       </div>
     </div>)
 }
+
+Expense.propTypes = {
+  category: PropTypes.array.isRequired,
+  addExpense: PropTypes.func.isRequired,
+  date: PropTypes.object.isRequired,
+  category_id: PropTypes.number.isRequired,
+  expenses: PropTypes.array.isRequired
+};
 
 export default Expense;

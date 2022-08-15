@@ -1,6 +1,7 @@
 import React from "react";
-import "./ExpenseSpreadSheet.css"
-import { Grid, Input} from 'react-spreadsheet-grid'
+import "./ExpenseSpreadSheet.css";
+import { Grid, Input} from 'react-spreadsheet-grid';
+import PropTypes from 'prop-types';
 
 const ExpenseSpreadSheet = (props) => {
 
@@ -53,6 +54,13 @@ const ExpenseSpreadSheet = (props) => {
 
     </div>);
 }
+
+ExpenseSpreadSheet.propTypes = {
+  addExpense: PropTypes.func.isRequired,
+  date: PropTypes.object.isRequired,
+  category_id: PropTypes.number.isRequired,
+  expenses: PropTypes.array.isRequired
+};
 
 export default ExpenseSpreadSheet;
 
