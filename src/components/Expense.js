@@ -38,7 +38,7 @@ const Expense = (props) => {
 }
 
 Expense.propTypes = {
-  category: PropTypes.array.isRequired,
+  category: PropTypes.object.isRequired,
   addExpense: PropTypes.func.isRequired,
   date: PropTypes.object.isRequired,
   category_id: PropTypes.number.isRequired,

@@ -126,7 +126,7 @@ const Chart = (props) => {
 }
 
 Chart.propTypes = {
-  selectChart: PropTypes.func.isRequired,
+  selectChart: PropTypes.string.isRequired,
   date: PropTypes.object.isRequired,
   defaultCategories: PropTypes.array.isRequired,
   expenses: PropTypes.array.isRequired
