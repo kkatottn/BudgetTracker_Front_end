@@ -42,7 +42,8 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpense
     setCurrentBudget(newFormData);
     if (currentBudget.amount === "" || currentBudget.amount === null || currentBudget.amount === 0) {
       setDisableSubmit(true);
-    } 
+    }
+
     else {
       setDisableSubmit(false);
     }
@@ -52,9 +53,13 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpense
     event.preventDefault();
     if (firstBudget === true){
       addBudget(currentBudget);
+      setCurrentBudget(defaultBudget);
+      setDisableSubmit(true);
     }
     else {
-      editBudget(currentBudget)
+      editBudget(currentBudget);
+      setCurrentBudget(defaultBudget);
+      setDisableSubmit(true);
     }
   };
 
@@ -83,7 +88,7 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpense
         type="number"
         name="amount"
         value={currentBudget.amount}
-        placeholder="Add/Edit budget amount"
+        placeholder="Add/Edit budget"
         onChange={onFormChange}
       ></input>
       <input
@@ -97,7 +102,10 @@ const BudgetContainer = ({budget, month, year, addBudget, editBudget, getExpense
 }
 
 BudgetContainer.propTypes = {
-  budget: PropTypes.number.isRequired,
+  budget: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]).isRequired,
   month: PropTypes.number.isRequired,
   year: PropTypes.number.isRequired,
   addBudget: PropTypes.func.isRequired,

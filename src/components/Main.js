@@ -61,7 +61,10 @@ Main.propTypes = {
   userCategories: PropTypes.array.isRequired,
   addExpense: PropTypes.func.isRequired,
   addUserCategory: PropTypes.func.isRequired,
-  budget: PropTypes.string.isRequired,
+  budget: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]).isRequired,
   date: PropTypes.object.isRequired,
   addBudget: PropTypes.func.isRequired,
   editBudget: PropTypes.func.isRequired,
